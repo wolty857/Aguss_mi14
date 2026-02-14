@@ -1,0 +1,1830 @@
+﻿/* ===================================
+   Van Gogh Starry Night - Valentine's Theme
+   Color Palette inspired by "The Starry Night"
+   =================================== */
+
+/* Import romantic and modern Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;700&display=swap');
+
+:root {
+    /* Starry Night Over Rhone Color Palette */
+    --night-blue: #0a1628;
+    --deep-blue: #1a2942;
+    --water-blue: #2d4a6e;
+    --reflection-blue: #3d5a80;
+    --golden-star: #f9c74f;
+    --golden-glow: #f8961e;
+    --golden-yellow: #f4d03f;
+    --bright-yellow: #f9c74f;
+    --moon-white: #f8f9fa;
+    --teal-accent: #43aa8b;
+    --dark-teal: #277da1;
+    --starry-blue: #5dade2;
+    --soft-white: #ffffff;
+
+    /* Tulip Colors */
+    --tulip-purple: #8b5cf6;
+    --tulip-dark-purple: #6d28d9;
+    --tulip-light-purple: #a78bfa;
+    --tulip-stem: #22c55e;
+    --tulip-leaf: #16a34a;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+}
+
+/* ===================================
+   Reset & Base Styles
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+    background: linear-gradient(180deg, var(--night-blue) 0%, var(--deep-blue) 60%, var(--water-blue) 100%);
+    color: var(--moon-white);
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ===================================
+   Password Lock Screen
+   =================================== */
+
+.lock-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, var(--night-blue) 0%, var(--deep-blue) 50%, #1a2942 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.lock-screen.unlocked {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.lock-container {
+    text-align: center;
+    max-width: 500px;
+    padding: var(--spacing-md);
+}
+
+/* Títulos románticos */
+.lock-title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.gallery-title,
+.romantic-title {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--golden-star);
+    text-shadow: 0 0 20px rgba(249, 199, 79, 0.3);
+}
+
+font-size: clamp(1.8rem, 4vw, 2.5rem);
+font-weight: 600;
+color: var(--golden-star);
+margin-bottom: var(--spacing-sm);
+text-shadow: 0 0 20px rgba(249, 199, 79, 0.5);
+}
+
+.lock-hint {
+    font-size: 1.1rem;
+    color: var(--moon-white);
+    opacity: 0.8;
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+}
+
+/* Animated Padlock */
+.padlock {
+    position: relative;
+    width: 120px;
+    height: 140px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.padlock-shackle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 50px;
+    border: 8px solid var(--golden-star);
+    border-bottom: none;
+    border-radius: 30px 30px 0 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 0 15px rgba(249, 199, 79, 0.3);
+}
+
+.padlock.unlocking .padlock-shackle {
+    transform: translateX(-50%) translateX(-35px) rotate(-45deg);
+    border-color: #4ade80;
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.5);
+}
+
+.padlock-body {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--golden-star) 0%, var(--golden-glow) 100%);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4),
+        inset 0 -3px 10px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(249, 199, 79, 0.4);
+    transition: all 0.6s ease;
+}
+
+.padlock.unlocking .padlock-body {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4),
+        inset 0 -3px 10px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(74, 222, 128, 0.6);
+}
+
+.keyhole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: var(--night-blue);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.keyhole::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 15px solid var(--night-blue);
+}
+
+/* Password Input Container */
+.password-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.password-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1.1rem;
+    text-align: center;
+    background: rgba(61, 90, 128, 0.3);
+    border: 2px solid rgba(249, 199, 79, 0.4);
+    border-radius: 12px;
+    color: var(--moon-white);
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3em;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.password-input::placeholder {
+    color: rgba(248, 249, 250, 0.5);
+    letter-spacing: normal;
+}
+
+.password-input:focus {
+    outline: none;
+    border-color: var(--golden-star);
+    box-shadow: 0 0 20px rgba(249, 199, 79, 0.3);
+    background: rgba(61, 90, 128, 0.4);
+}
+
+.unlock-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--golden-star) 0%, var(--golden-glow) 100%);
+    color: var(--night-blue);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 4px 15px rgba(249, 199, 79, 0.3);
+}
+
+.unlock-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(249, 199, 79, 0.5);
+    background: linear-gradient(135deg, var(--golden-glow) 0%, var(--golden-star) 100%);
+}
+
+.unlock-btn:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    color: #ff6b9d;
+    font-size: 0.95rem;
+    min-height: 20px;
+    margin-top: var(--spacing-xs);
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+/* Success Animation */
+.padlock.unlocking {
+    animation: celebrate 0.8s ease;
+}
+
+@keyframes celebrate {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ===================================
+   Starry Background Animation
+   =================================== */
+
+.starry-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background: var(--moon-white);
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+.star.small {
+    width: 2px;
+    height: 2px;
+}
+
+.star.medium {
+    width: 3px;
+    height: 3px;
+}
+
+.star.large {
+    width: 4px;
+    height: 4px;
+    box-shadow: 0 0 10px var(--bright-yellow);
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.swirl {
+    position: absolute;
+    border: 2px solid rgba(244, 208, 63, 0.3);
+    border-radius: 50%;
+    animation: swirl-rotate 20s infinite linear;
+}
+
+@keyframes swirl-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===================================
+   Navigation Bar
+   =================================== */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(30, 58, 95, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(244, 208, 63, 0.3);
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--moon-white);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--golden-yellow);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--golden-yellow);
+    transform: translateY(-2px);
+}
+
+nav ul li a:hover::before {
+    width: 80%;
+}
+
+nav ul li a.active {
+    background: rgba(244, 208, 63, 0.2);
+    color: var(--golden-yellow);
+    box-shadow: 0 0 15px rgba(244, 208, 63, 0.3);
+}
+
+/* Navigation Icons - Pixel Art Style */
+.nav-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5em;
+    position: relative;
+    vertical-align: middle;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    transition: all 0.3s ease;
+}
+
+.nav-icon::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--golden-yellow);
+}
+
+/* Home Icon - Pixel Art House */
+.icon-home::before {
+    box-shadow:
+        /* Roof */
+        6px 0px 0 0 var(--golden-yellow),
+        4px 2px 0 0 var(--golden-yellow),
+        8px 2px 0 0 var(--golden-yellow),
+        2px 4px 0 0 var(--golden-yellow),
+        10px 4px 0 0 var(--golden-yellow),
+        /* House body */
+        2px 6px 0 0 var(--golden-yellow),
+        4px 6px 0 0 var(--golden-yellow),
+        6px 6px 0 0 var(--golden-yellow),
+        8px 6px 0 0 var(--golden-yellow),
+        10px 6px 0 0 var(--golden-yellow),
+        2px 8px 0 0 var(--golden-yellow),
+        4px 8px 0 0 var(--golden-yellow),
+        8px 8px 0 0 var(--golden-yellow),
+        10px 8px 0 0 var(--golden-yellow),
+        2px 10px 0 0 var(--golden-yellow),
+        4px 10px 0 0 var(--golden-yellow),
+        8px 10px 0 0 var(--golden-yellow),
+        10px 10px 0 0 var(--golden-yellow),
+        2px 12px 0 0 var(--golden-yellow),
+        4px 12px 0 0 var(--golden-yellow),
+        6px 12px 0 0 var(--golden-yellow),
+        8px 12px 0 0 var(--golden-yellow),
+        10px 12px 0 0 var(--golden-yellow);
+}
+
+/* Music Note Icon - Pixel Art */
+.icon-music::before {
+    box-shadow:
+        /* Note stem */
+        8px 0px 0 0 var(--golden-yellow),
+        8px 2px 0 0 var(--golden-yellow),
+        8px 4px 0 0 var(--golden-yellow),
+        8px 6px 0 0 var(--golden-yellow),
+        8px 8px 0 0 var(--golden-yellow),
+        /* Note head */
+        4px 8px 0 0 var(--golden-yellow),
+        6px 8px 0 0 var(--golden-yellow),
+        4px 10px 0 0 var(--golden-yellow),
+        6px 10px 0 0 var(--golden-yellow),
+        8px 10px 0 0 var(--golden-yellow),
+        4px 12px 0 0 var(--golden-yellow),
+        6px 12px 0 0 var(--golden-yellow),
+        /* Top flag */
+        10px 0px 0 0 var(--golden-yellow),
+        10px 2px 0 0 var(--golden-yellow),
+        12px 2px 0 0 var(--golden-yellow);
+}
+
+/* Heart Icon - Pixel Art */
+.icon-heart::before {
+    box-shadow:
+        /* Top of heart */
+        2px 2px 0 0 var(--golden-yellow),
+        4px 2px 0 0 var(--golden-yellow),
+        8px 2px 0 0 var(--golden-yellow),
+        10px 2px 0 0 var(--golden-yellow),
+        /* Middle rows */
+        0px 4px 0 0 var(--golden-yellow),
+        2px 4px 0 0 var(--golden-yellow),
+        4px 4px 0 0 var(--golden-yellow),
+        6px 4px 0 0 var(--golden-yellow),
+        8px 4px 0 0 var(--golden-yellow),
+        10px 4px 0 0 var(--golden-yellow),
+        12px 4px 0 0 var(--golden-yellow),
+        0px 6px 0 0 var(--golden-yellow),
+        2px 6px 0 0 var(--golden-yellow),
+        4px 6px 0 0 var(--golden-yellow),
+        6px 6px 0 0 var(--golden-yellow),
+        8px 6px 0 0 var(--golden-yellow),
+        10px 6px 0 0 var(--golden-yellow),
+        12px 6px 0 0 var(--golden-yellow),
+        /* Bottom rows */
+        2px 8px 0 0 var(--golden-yellow),
+        4px 8px 0 0 var(--golden-yellow),
+        6px 8px 0 0 var(--golden-yellow),
+        8px 8px 0 0 var(--golden-yellow),
+        10px 8px 0 0 var(--golden-yellow),
+        4px 10px 0 0 var(--golden-yellow),
+        6px 10px 0 0 var(--golden-yellow),
+        8px 10px 0 0 var(--golden-yellow),
+        6px 12px 0 0 var(--golden-yellow);
+}
+
+/* Star Icon - Pixel Art */
+.icon-star::before {
+    box-shadow:
+        /* Top point */
+        6px 0px 0 0 var(--golden-yellow),
+        /* Second row */
+        4px 2px 0 0 var(--golden-yellow),
+        6px 2px 0 0 var(--golden-yellow),
+        8px 2px 0 0 var(--golden-yellow),
+        /* Middle wide */
+        0px 4px 0 0 var(--golden-yellow),
+        2px 4px 0 0 var(--golden-yellow),
+        4px 4px 0 0 var(--golden-yellow),
+        6px 4px 0 0 var(--golden-yellow),
+        8px 4px 0 0 var(--golden-yellow),
+        10px 4px 0 0 var(--golden-yellow),
+        12px 4px 0 0 var(--golden-yellow),
+        /* Inner points */
+        2px 6px 0 0 var(--golden-yellow),
+        4px 6px 0 0 var(--golden-yellow),
+        6px 6px 0 0 var(--golden-yellow),
+        8px 6px 0 0 var(--golden-yellow),
+        10px 6px 0 0 var(--golden-yellow),
+        /* Bottom points */
+        0px 8px 0 0 var(--golden-yellow),
+        4px 8px 0 0 var(--golden-yellow),
+        6px 8px 0 0 var(--golden-yellow),
+        8px 8px 0 0 var(--golden-yellow),
+        12px 8px 0 0 var(--golden-yellow),
+        2px 10px 0 0 var(--golden-yellow),
+        10px 10px 0 0 var(--golden-yellow),
+        4px 12px 0 0 var(--golden-yellow),
+        8px 12px 0 0 var(--golden-yellow);
+}
+
+/* Food/Plate Icon - Pixel Art */
+.icon-food::before {
+    box-shadow:
+        /* Plate top */
+        2px 4px 0 0 var(--golden-yellow),
+        4px 4px 0 0 var(--golden-yellow),
+        6px 4px 0 0 var(--golden-yellow),
+        8px 4px 0 0 var(--golden-yellow),
+        10px 4px 0 0 var(--golden-yellow),
+        /* Plate sides */
+        0px 6px 0 0 var(--golden-yellow),
+        12px 6px 0 0 var(--golden-yellow),
+        0px 8px 0 0 var(--golden-yellow),
+        12px 8px 0 0 var(--golden-yellow),
+        /* Plate bottom */
+        2px 10px 0 0 var(--golden-yellow),
+        4px 10px 0 0 var(--golden-yellow),
+        6px 10px 0 0 var(--golden-yellow),
+        8px 10px 0 0 var(--golden-yellow),
+        10px 10px 0 0 var(--golden-yellow),
+        /* Food on plate */
+        4px 2px 0 0 var(--golden-yellow),
+        6px 2px 0 0 var(--golden-yellow),
+        8px 2px 0 0 var(--golden-yellow),
+        6px 0px 0 0 var(--golden-yellow);
+}
+
+/* Hover effects for pixel art icons */
+nav ul li a:hover .nav-icon::before {
+    animation: pixelPulse 0.6s ease infinite;
+}
+
+nav ul li a.active .nav-icon::before {
+    animation: pixelBounce 0.6s ease;
+}
+
+@keyframes pixelPulse {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.5) drop-shadow(0 0 4px var(--golden-yellow));
+    }
+}
+
+@keyframes pixelBounce {
+
+    0%,
+    100% {
+        transform: scale(1) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.2) translateY(-2px);
+    }
+}
+
+/* ===================================
+   Page Sections
+   =================================== */
+
+.page-section {
+    display: none;
+    min-height: 100vh;
+    padding: calc(80px + var(--spacing-md)) var(--spacing-md) var(--spacing-md);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.page-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   Main Page - Love Quotes
+   =================================== */
+
+.main-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--spacing-lg);
+}
+
+.main-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: var(--golden-yellow);
+    text-shadow: 0 0 20px rgba(244, 208, 63, 0.5);
+    margin-bottom: var(--spacing-md);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(244, 208, 63, 0.5);
+    }
+
+    to {
+        text-shadow: 0 0 30px rgba(244, 208, 63, 0.8), 0 0 40px rgba(244, 208, 63, 0.4);
+    }
+}
+
+.love-quotes-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.quote-card {
+    background: rgba(78, 110, 142, 0.3);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 0;
+    padding: var(--spacing-md);
+    position: relative;
+    animation: floatIn 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Pixel art border using box-shadow */
+.quote-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    box-shadow:
+        /* Top border */
+        0 -4px 0 0 var(--golden-yellow),
+        4px -4px 0 0 var(--golden-yellow),
+        8px -4px 0 0 var(--golden-yellow),
+        -4px -4px 0 0 var(--golden-yellow),
+        -8px -4px 0 0 var(--golden-yellow),
+        /* Bottom border */
+        0 4px 0 0 var(--golden-yellow),
+        4px 4px 0 0 var(--golden-yellow),
+        8px 4px 0 0 var(--golden-yellow),
+        -4px 4px 0 0 var(--golden-yellow),
+        -8px 4px 0 0 var(--golden-yellow),
+        /* Left border */
+        -4px 0 0 0 var(--golden-yellow),
+        -4px 4px 0 0 var(--golden-yellow),
+        -4px -4px 0 0 var(--golden-yellow),
+        /* Right border */
+        4px 0 0 0 var(--golden-yellow),
+        4px 4px 0 0 var(--golden-yellow),
+        4px -4px 0 0 var(--golden-yellow);
+}
+
+/* Pixel corners */
+.quote-card::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--golden-yellow);
+    top: -4px;
+    left: -4px;
+    box-shadow:
+        /* Top-left corner */
+        0 0 0 0 var(--golden-yellow),
+        /* Top-right corner */
+        calc(100% + 8px) 0 0 0 var(--golden-yellow),
+        /* Bottom-left corner */
+        0 calc(100% + 8px) 0 0 var(--golden-yellow),
+        /* Bottom-right corner */
+        calc(100% + 8px) calc(100% + 8px) 0 0 var(--golden-yellow),
+        /* Inner glow */
+        2px 2px 8px 0 rgba(244, 208, 63, 0.5),
+        calc(100% + 6px) 2px 8px 0 rgba(244, 208, 63, 0.5),
+        2px calc(100% + 6px) 8px 0 rgba(244, 208, 63, 0.5),
+        calc(100% + 6px) calc(100% + 6px) 8px 0 rgba(244, 208, 63, 0.5);
+}
+
+.quote-card:hover {
+    background: rgba(78, 110, 142, 0.4);
+    transform: translateY(-4px);
+}
+
+.quote-card:hover::before {
+    box-shadow:
+        /* Top border - brighter on hover */
+        0 -4px 0 0 var(--bright-yellow),
+        4px -4px 0 0 var(--bright-yellow),
+        8px -4px 0 0 var(--bright-yellow),
+        -4px -4px 0 0 var(--bright-yellow),
+        -8px -4px 0 0 var(--bright-yellow),
+        /* Bottom border */
+        0 4px 0 0 var(--bright-yellow),
+        4px 4px 0 0 var(--bright-yellow),
+        8px 4px 0 0 var(--bright-yellow),
+        -4px 4px 0 0 var(--bright-yellow),
+        -8px 4px 0 0 var(--bright-yellow),
+        /* Left border */
+        -4px 0 0 0 var(--bright-yellow),
+        -4px 4px 0 0 var(--bright-yellow),
+        -4px -4px 0 0 var(--bright-yellow),
+        /* Right border */
+        4px 0 0 0 var(--bright-yellow),
+        4px 4px 0 0 var(--bright-yellow),
+        4px -4px 0 0 var(--bright-yellow);
+}
+
+.quote-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.quote-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.quote-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.quote-card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.quote-card:nth-child(5) {
+    animation-delay: 1s;
+}
+
+@keyframes floatIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quote-card p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-style: italic;
+    color: var(--moon-white);
+    line-height: 1.6;
+}
+
+.quote-card::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--golden-yellow);
+    opacity: 0.3;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* ===================================
+   Content Pages
+   =================================== */
+
+.content-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 600;
+    color: var(--golden-yellow);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 0 0 15px rgba(244, 208, 63, 0.4);
+}
+
+/* Songs Section */
+.songs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.song-card {
+    background: rgba(78, 110, 142, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(244, 208, 63, 0.2);
+    border-radius: 15px;
+    padding: var(--spacing-md);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.song-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--golden-yellow);
+    box-shadow: 0 10px 30px rgba(244, 208, 63, 0.3);
+}
+
+.song-card h3 {
+    color: var(--golden-yellow);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.song-card p {
+    color: var(--moon-white);
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* Reasons Section */
+.reasons-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.reason-item {
+    background: rgba(78, 110, 142, 0.2);
+    backdrop-filter: blur(10px);
+    border-left: 4px solid var(--golden-yellow);
+    border-radius: 10px;
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    transition: all 0.3s ease;
+    animation: slideInLeft 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.reason-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.reason-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.reason-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.reason-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.reason-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.reason-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.reason-item:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.reason-item:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+.reason-item:nth-child(9) {
+    animation-delay: 0.9s;
+}
+
+.reason-item:nth-child(10) {
+    animation-delay: 1s;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.reason-item:hover {
+    transform: translateX(10px);
+    border-left-width: 6px;
+}
+
+.reason-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    color: var(--golden-yellow);
+    font-weight: 700;
+    min-width: 50px;
+}
+
+.reason-text {
+    flex: 1;
+}
+
+.reason-text h3 {
+    color: var(--golden-yellow);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.reason-text p {
+    color: var(--moon-white);
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Timeline Section */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-md) 0;
+}
+
+/* Línea vertical central */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            var(--golden-yellow) 10%,
+            var(--golden-yellow) 90%,
+            transparent 100%);
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px rgba(244, 208, 63, 0.5);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0;
+    animation: fadeInTimeline 0.8s ease-out forwards;
+}
+
+/* Animaciones escalonadas para cada item */
+.timeline-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.timeline-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.timeline-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.timeline-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.timeline-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.timeline-item:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.timeline-item:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+.timeline-item:nth-child(9) {
+    animation-delay: 0.9s;
+}
+
+.timeline-item:nth-child(10) {
+    animation-delay: 1s;
+}
+
+.timeline-item:nth-child(11) {
+    animation-delay: 1.1s;
+}
+
+.timeline-item:nth-child(12) {
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeInTimeline {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Punto dorado en la línea */
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--golden-yellow);
+    border: 4px solid var(--night-blue);
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 0 4px rgba(244, 208, 63, 0.3),
+        0 0 20px rgba(244, 208, 63, 0.6);
+    transition: all 0.4s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    transform: translateX(-50%) scale(1.4);
+    background: var(--bright-yellow);
+    box-shadow: 0 0 0 6px rgba(244, 208, 63, 0.4),
+        0 0 30px rgba(244, 208, 63, 0.8);
+}
+
+/* Contenido alternado a izquierda y derecha */
+.timeline-content {
+    width: calc(50% - 40px);
+    background: rgba(78, 110, 142, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(244, 208, 63, 0.3);
+    border-radius: 15px;
+    padding: var(--spacing-md);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+/* Items impares a la izquierda */
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/* Items pares a la derecha */
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Flecha apuntando al punto */
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+}
+
+/* Flecha para items impares (izquierda) */
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -20px;
+    border-left-color: rgba(244, 208, 63, 0.3);
+}
+
+/* Flecha para items pares (derecha) */
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -20px;
+    border-right-color: rgba(244, 208, 63, 0.3);
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    border-color: var(--golden-yellow);
+    box-shadow: 0 10px 40px rgba(244, 208, 63, 0.4);
+    background: rgba(78, 110, 142, 0.3);
+}
+
+.timeline-content h3 {
+    color: var(--golden-yellow);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-xs);
+    text-shadow: 0 0 10px rgba(244, 208, 63, 0.3);
+}
+
+.timeline-content p {
+    color: var(--moon-white);
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xs);
+}
+
+.moment-date {
+    display: block;
+    margin-top: var(--spacing-sm);
+    color: var(--starry-blue);
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 30px;
+    }
+
+    .timeline-dot {
+        left: 30px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 80px !important;
+        margin-right: 0 !important;
+    }
+
+    .timeline-content::before {
+        left: -20px !important;
+        right: auto !important;
+        border-left-color: transparent !important;
+        border-right-color: rgba(244, 208, 63, 0.3) !important;
+    }
+}
+
+
+/* Foods Section */
+.foods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.food-card {
+    background: rgba(78, 110, 142, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(244, 208, 63, 0.2);
+    border-radius: 15px;
+    padding: var(--spacing-md);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.food-card:hover {
+    transform: translateY(-8px) rotate(2deg);
+    border-color: var(--golden-yellow);
+    box-shadow: 0 15px 40px rgba(244, 208, 63, 0.4);
+}
+
+.food-emoji {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.food-card:hover .food-emoji {
+    animation: spin 0.6s ease-in-out;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.food-card h3 {
+    color: var(--golden-yellow);
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.food-card p {
+    color: var(--moon-white);
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+@media (max-width: 768px) {
+    nav ul {
+        gap: var(--spacing-xs);
+    }
+
+    nav ul li a {
+        padding: var(--spacing-xs);
+        font-size: 0.9rem;
+    }
+
+    .page-section {
+        padding: calc(120px + var(--spacing-sm)) var(--spacing-sm) var(--spacing-sm);
+    }
+
+    .quote-card {
+        padding: var(--spacing-sm);
+    }
+
+    .songs-grid,
+    .moments-grid,
+    .foods-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .reason-number {
+        font-size: 1.5rem;
+        min-width: 40px;
+    }
+}
+
+/* ===================================
+   Utility Classes
+   =================================== */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 {
+    margin-top: var(--spacing-sm);
+}
+
+.mt-2 {
+    margin-top: var(--spacing-md);
+}
+
+.mt-3 {
+    margin-top: var(--spacing-lg);
+}
+
+.mb-1 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.mb-2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.mb-3 {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* ===================================
+   Photo Gallery Section
+   =================================== */
+
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.photo-card {
+    background: rgba(61, 90, 128, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(249, 199, 79, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.photo-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--golden-star);
+    box-shadow: 0 12px 35px rgba(249, 199, 79, 0.3);
+}
+
+.photo-placeholder {
+    aspect-ratio: 4 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(61, 90, 128, 0.3) 0%, rgba(45, 74, 110, 0.3) 100%);
+    border-bottom: 2px solid rgba(249, 199, 79, 0.1);
+}
+
+.photo-placeholder .photo-icon {
+    font-size: 4rem;
+    opacity: 0.5;
+    margin-bottom: var(--spacing-sm);
+}
+
+.photo-placeholder p {
+    color: var(--moon-white);
+    opacity: 0.6;
+    font-size: 0.95rem;
+}
+
+.photo-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--moon-white);
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.upload-instructions {
+    background: rgba(61, 90, 128, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(67, 170, 139, 0.3);
+    border-radius: 15px;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.upload-instructions h3 {
+    color: var(--teal-accent);
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.upload-instructions ol {
+    margin-left: var(--spacing-md);
+    color: var(--moon-white);
+    opacity: 0.9;
+    line-height: 1.8;
+}
+
+.upload-instructions li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.upload-instructions code {
+    background: rgba(10, 22, 40, 0.5);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--golden-star);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+/* ===================================
+   Decorative Tulips - 2D Pixel Art Style
+   =================================== */
+
+.tulip-container {
+    position: fixed;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Tulip Structure */
+.tulip {
+    position: relative;
+    display: inline-block;
+    animation: tulipSway 4s ease-in-out infinite;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Tulip Stem - Pure Pixel Art with box-shadow */
+.tulip-stem {
+    width: 2px;
+    height: 2px;
+    margin: 0 auto;
+    position: relative;
+    background: transparent;
+}
+
+.tulip-stem::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--tulip-stem);
+    box-shadow:
+        /* Main stem column */
+        0px 0px 0 0 var(--tulip-stem),
+        0px -2px 0 0 var(--tulip-stem),
+        0px -4px 0 0 var(--tulip-stem),
+        0px -6px 0 0 var(--tulip-stem),
+        0px -8px 0 0 var(--tulip-stem),
+        0px -10px 0 0 var(--tulip-stem),
+        0px -12px 0 0 var(--tulip-stem),
+        0px -14px 0 0 var(--tulip-stem),
+        0px -16px 0 0 var(--tulip-stem),
+        0px -18px 0 0 var(--tulip-stem),
+        0px -20px 0 0 var(--tulip-stem),
+        0px -22px 0 0 var(--tulip-stem),
+        0px -24px 0 0 var(--tulip-stem),
+        /* Dark edge */
+        2px 0px 0 0 #15803d,
+        2px -2px 0 0 #15803d,
+        2px -4px 0 0 #15803d,
+        2px -6px 0 0 #15803d,
+        2px -8px 0 0 #15803d,
+        2px -10px 0 0 #15803d,
+        2px -12px 0 0 #15803d,
+        2px -14px 0 0 #15803d,
+        2px -16px 0 0 #15803d,
+        2px -18px 0 0 #15803d,
+        2px -20px 0 0 #15803d,
+        2px -22px 0 0 #15803d,
+        2px -24px 0 0 #15803d;
+}
+
+/* Tulip Leaves - Pure Pixel Art */
+.tulip-leaf {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+}
+
+.tulip-leaf.left {
+    left: -8px;
+    top: 12px;
+}
+
+.tulip-leaf.left::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--tulip-leaf);
+    box-shadow:
+        0px 0px 0 0 var(--tulip-leaf),
+        2px 0px 0 0 var(--tulip-leaf),
+        4px 0px 0 0 var(--tulip-leaf),
+        6px 0px 0 0 var(--tulip-leaf),
+        2px 2px 0 0 var(--tulip-leaf),
+        4px 2px 0 0 var(--tulip-leaf),
+        6px 2px 0 0 var(--tulip-leaf),
+        4px 4px 0 0 var(--tulip-leaf),
+        6px 4px 0 0 var(--tulip-leaf),
+        /* Dark edge */
+        0px 2px 0 0 #15803d,
+        2px 4px 0 0 #15803d;
+}
+
+.tulip-leaf.right {
+    right: -8px;
+    top: 8px;
+}
+
+.tulip-leaf.right::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--tulip-leaf);
+    box-shadow:
+        0px 0px 0 0 var(--tulip-leaf),
+        -2px 0px 0 0 var(--tulip-leaf),
+        -4px 0px 0 0 var(--tulip-leaf),
+        -6px 0px 0 0 var(--tulip-leaf),
+        -2px 2px 0 0 var(--tulip-leaf),
+        -4px 2px 0 0 var(--tulip-leaf),
+        -6px 2px 0 0 var(--tulip-leaf),
+        -4px 4px 0 0 var(--tulip-leaf),
+        -6px 4px 0 0 var(--tulip-leaf),
+        /* Dark edge */
+        0px 2px 0 0 #15803d,
+        -2px 4px 0 0 #15803d;
+}
+
+/* Tulip Flower Head - Retro Pixel Art Style */
+.tulip-flower {
+    position: absolute;
+    top: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 36px;
+}
+
+/* Petals - Pure Pixel Art */
+.tulip-petal {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+}
+
+/* Center petal - Pixel Art */
+.tulip-petal.center {
+    left: 13px;
+    top: 8px;
+}
+
+.tulip-petal.center::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--tulip-purple);
+    box-shadow:
+        /* Center column */
+        0px 0px 0 0 var(--tulip-purple),
+        0px 2px 0 0 var(--tulip-purple),
+        0px 4px 0 0 var(--tulip-purple),
+        0px 6px 0 0 var(--tulip-purple),
+        0px 8px 0 0 var(--tulip-purple),
+        0px 10px 0 0 var(--tulip-purple),
+        0px 12px 0 0 var(--tulip-purple),
+        /* Light highlight */
+        -2px 2px 0 0 var(--tulip-light-purple),
+        -2px 4px 0 0 var(--tulip-light-purple),
+        /* Dark shadow */
+        2px 8px 0 0 var(--tulip-dark-purple),
+        2px 10px 0 0 var(--tulip-dark-purple);
+}
+
+/* Left petal - Pixel Art */
+.tulip-petal.left {
+    left: 5px;
+    top: 10px;
+}
+
+.tulip-petal.left::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--tulip-purple);
+    box-shadow:
+        0px 0px 0 0 var(--tulip-purple),
+        2px 0px 0 0 var(--tulip-purple),
+        4px 0px 0 0 var(--tulip-purple),
+        0px 2px 0 0 var(--tulip-purple),
+        2px 2px 0 0 var(--tulip-purple),
+        4px 2px 0 0 var(--tulip-purple),
+        2px 4px 0 0 var(--tulip-purple),
+        4px 4px 0 0 var(--tulip-purple),
+        4px 6px 0 0 var(--tulip-purple),
+        4px 8px 0 0 var(--tulip-purple),
+        /* Light */
+        0px 4px 0 0 var(--tulip-light-purple),
+        2px 6px 0 0 var(--tulip-light-purple),
+        /* Dark */
+        6px 2px 0 0 var(--tulip-dark-purple),
+        6px 4px 0 0 var(--tulip-dark-purple);
+}
+
+/* Right petal - Pixel Art */
+.tulip-petal.right {
+    right: 5px;
+    top: 10px;
+}
+
+.tulip-petal.right::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--tulip-purple);
+    box-shadow:
+        0px 0px 0 0 var(--tulip-purple),
+        -2px 0px 0 0 var(--tulip-purple),
+        -4px 0px 0 0 var(--tulip-purple),
+        0px 2px 0 0 var(--tulip-purple),
+        -2px 2px 0 0 var(--tulip-purple),
+        -4px 2px 0 0 var(--tulip-purple),
+        -2px 4px 0 0 var(--tulip-purple),
+        -4px 4px 0 0 var(--tulip-purple),
+        -4px 6px 0 0 var(--tulip-purple),
+        -4px 8px 0 0 var(--tulip-purple),
+        /* Light */
+        0px 4px 0 0 var(--tulip-light-purple),
+        -2px 6px 0 0 var(--tulip-light-purple),
+        /* Dark */
+        -6px 2px 0 0 var(--tulip-dark-purple),
+        -6px 4px 0 0 var(--tulip-dark-purple);
+}
+
+/* Animations */
+@keyframes tulipSway {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-3deg);
+    }
+
+    75% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes tulipGrow {
+    0% {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+@keyframes tulipBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Tulip Positions - Scattered around the page */
+.tulip-container.bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+
+.tulip-container.bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+
+.tulip-container.top-left {
+    top: 100px;
+    left: 30px;
+}
+
+.tulip-container.top-right {
+    top: 100px;
+    right: 30px;
+}
+
+.tulip-container.mid-left {
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+
+.tulip-container.mid-right {
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+}
+
+/* Different animation delays for variety */
+.tulip-container:nth-child(1) .tulip {
+    animation-delay: 0s;
+}
+
+.tulip-container:nth-child(2) .tulip {
+    animation-delay: 0.5s;
+}
+
+.tulip-container:nth-child(3) .tulip {
+    animation-delay: 1s;
+}
+
+.tulip-container:nth-child(4) .tulip {
+    animation-delay: 1.5s;
+}
+
+.tulip-container:nth-child(5) .tulip {
+    animation-delay: 2s;
+}
+
+.tulip-container:nth-child(6) .tulip {
+    animation-delay: 2.5s;
+}
+
+/* Scale variations */
+.tulip-container.small .tulip {
+    transform: scale(0.8);
+}
+
+.tulip-container.large .tulip {
+    transform: scale(1.2);
+}
+
+/* Responsive - Hide on small screens to avoid clutter */
+@media (max-width: 768px) {
+
+    .tulip-container.mid-left,
+    .tulip-container.mid-right,
+    .tulip-container.top-left,
+    .tulip-container.top-right {
+        display: none;
+    }
+}

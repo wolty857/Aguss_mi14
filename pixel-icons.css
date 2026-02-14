@@ -1,0 +1,848 @@
+/* ===================================
+   Content Pixel Art Icons
+   =================================== */
+
+/* Base style for content pixel icons */
+.pixel-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5em;
+    position: relative;
+    vertical-align: middle;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.pixel-icon::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--golden-yellow);
+}
+
+/* Moon Icon */
+.icon-moon::before {
+    box-shadow:
+        4px 2px 0 0 var(--golden-yellow),
+        6px 2px 0 0 var(--golden-yellow),
+        8px 2px 0 0 var(--golden-yellow),
+        2px 4px 0 0 var(--golden-yellow),
+        4px 4px 0 0 var(--golden-yellow),
+        6px 4px 0 0 var(--golden-yellow),
+        8px 4px 0 0 var(--golden-yellow),
+        10px 4px 0 0 var(--golden-yellow),
+        2px 6px 0 0 var(--golden-yellow),
+        4px 6px 0 0 var(--golden-yellow),
+        6px 6px 0 0 var(--golden-yellow),
+        8px 6px 0 0 var(--golden-yellow),
+        10px 6px 0 0 var(--golden-yellow),
+        2px 8px 0 0 var(--golden-yellow),
+        4px 8px 0 0 var(--golden-yellow),
+        6px 8px 0 0 var(--golden-yellow),
+        8px 8px 0 0 var(--golden-yellow),
+        10px 8px 0 0 var(--golden-yellow),
+        4px 10px 0 0 var(--golden-yellow),
+        6px 10px 0 0 var(--golden-yellow),
+        8px 10px 0 0 var(--golden-yellow),
+        /* Crater */
+        6px 6px 0 0 #f8961e;
+}
+
+/* Sparkle Icon */
+.icon-sparkle::before {
+    box-shadow:
+        6px 0px 0 0 var(--golden-yellow),
+        4px 2px 0 0 var(--golden-yellow),
+        6px 2px 0 0 var(--golden-yellow),
+        8px 2px 0 0 var(--golden-yellow),
+        2px 4px 0 0 var(--golden-yellow),
+        6px 4px 0 0 var(--golden-yellow),
+        10px 4px 0 0 var(--golden-yellow),
+        0px 6px 0 0 var(--golden-yellow),
+        2px 6px 0 0 var(--golden-yellow),
+        4px 6px 0 0 var(--golden-yellow),
+        6px 6px 0 0 var(--golden-yellow),
+        8px 6px 0 0 var(--golden-yellow),
+        10px 6px 0 0 var(--golden-yellow),
+        12px 6px 0 0 var(--golden-yellow),
+        2px 8px 0 0 var(--golden-yellow),
+        6px 8px 0 0 var(--golden-yellow),
+        10px 8px 0 0 var(--golden-yellow),
+        4px 10px 0 0 var(--golden-yellow),
+        6px 10px 0 0 var(--golden-yellow),
+        8px 10px 0 0 var(--golden-yellow),
+        6px 12px 0 0 var(--golden-yellow);
+}
+
+/* Dizzy/Swirl Icon */
+.icon-dizzy::before {
+    box-shadow:
+        4px 2px 0 0 var(--golden-yellow),
+        6px 2px 0 0 var(--golden-yellow),
+        8px 2px 0 0 var(--golden-yellow),
+        2px 4px 0 0 var(--golden-yellow),
+        10px 4px 0 0 var(--golden-yellow),
+        2px 6px 0 0 var(--golden-yellow),
+        4px 6px 0 0 var(--golden-yellow),
+        6px 6px 0 0 var(--golden-yellow),
+        8px 6px 0 0 var(--golden-yellow),
+        10px 6px 0 0 var(--golden-yellow),
+        2px 8px 0 0 var(--golden-yellow),
+        10px 8px 0 0 var(--golden-yellow),
+        4px 10px 0 0 var(--golden-yellow),
+        6px 10px 0 0 var(--golden-yellow),
+        8px 10px 0 0 var(--golden-yellow);
+}
+
+/* Big Star Icon */
+.icon-star-big::before {
+    box-shadow:
+        6px 0px 0 0 var(--golden-yellow),
+        4px 2px 0 0 var(--golden-yellow),
+        6px 2px 0 0 var(--golden-yellow),
+        8px 2px 0 0 var(--golden-yellow),
+        0px 4px 0 0 var(--golden-yellow),
+        2px 4px 0 0 var(--golden-yellow),
+        4px 4px 0 0 var(--golden-yellow),
+        6px 4px 0 0 var(--golden-yellow),
+        8px 4px 0 0 var(--golden-yellow),
+        10px 4px 0 0 var(--golden-yellow),
+        12px 4px 0 0 var(--golden-yellow),
+        2px 6px 0 0 var(--golden-yellow),
+        4px 6px 0 0 var(--golden-yellow),
+        6px 6px 0 0 var(--golden-yellow),
+        8px 6px 0 0 var(--golden-yellow),
+        10px 6px 0 0 var(--golden-yellow),
+        0px 8px 0 0 var(--golden-yellow),
+        4px 8px 0 0 var(--golden-yellow),
+        6px 8px 0 0 var(--golden-yellow),
+        8px 8px 0 0 var(--golden-yellow),
+        12px 8px 0 0 var(--golden-yellow),
+        2px 10px 0 0 var(--golden-yellow),
+        10px 10px 0 0 var(--golden-yellow),
+        4px 12px 0 0 var(--golden-yellow),
+        8px 12px 0 0 var(--golden-yellow);
+}
+
+/* Yellow Heart Icon */
+.icon-heart-yellow::before {
+    box-shadow:
+        2px 2px 0 0 var(--golden-yellow),
+        4px 2px 0 0 var(--golden-yellow),
+        8px 2px 0 0 var(--golden-yellow),
+        10px 2px 0 0 var(--golden-yellow),
+        0px 4px 0 0 var(--golden-yellow),
+        2px 4px 0 0 var(--golden-yellow),
+        4px 4px 0 0 var(--golden-yellow),
+        6px 4px 0 0 var(--golden-yellow),
+        8px 4px 0 0 var(--golden-yellow),
+        10px 4px 0 0 var(--golden-yellow),
+        12px 4px 0 0 var(--golden-yellow),
+        0px 6px 0 0 var(--golden-yellow),
+        2px 6px 0 0 var(--golden-yellow),
+        4px 6px 0 0 var(--golden-yellow),
+        6px 6px 0 0 var(--golden-yellow),
+        8px 6px 0 0 var(--golden-yellow),
+        10px 6px 0 0 var(--golden-yellow),
+        12px 6px 0 0 var(--golden-yellow),
+        2px 8px 0 0 var(--golden-yellow),
+        4px 8px 0 0 var(--golden-yellow),
+        6px 8px 0 0 var(--golden-yellow),
+        8px 8px 0 0 var(--golden-yellow),
+        10px 8px 0 0 var(--golden-yellow),
+        4px 10px 0 0 var(--golden-yellow),
+        6px 10px 0 0 var(--golden-yellow),
+        8px 10px 0 0 var(--golden-yellow),
+        6px 12px 0 0 var(--golden-yellow);
+}
+
+/* Palette Icon */
+.icon-palette::before {
+    box-shadow:
+        4px 2px 0 0 var(--golden-yellow),
+        6px 2px 0 0 var(--golden-yellow),
+        8px 2px 0 0 var(--golden-yellow),
+        2px 4px 0 0 var(--golden-yellow),
+        10px 4px 0 0 var(--golden-yellow),
+        2px 6px 0 0 var(--golden-yellow),
+        4px 6px 0 0 #ff6b9d,
+        6px 6px 0 0 #5dade2,
+        8px 6px 0 0 #43aa8b,
+        10px 6px 0 0 var(--golden-yellow),
+        2px 8px 0 0 var(--golden-yellow),
+        10px 8px 0 0 var(--golden-yellow),
+        4px 10px 0 0 var(--golden-yellow),
+        6px 10px 0 0 var(--golden-yellow),
+        8px 10px 0 0 var(--golden-yellow);
+}
+
+/* Eyes Icon */
+.icon-eyes::before {
+    box-shadow:
+        /* Left eye */
+        2px 4px 0 0 var(--golden-yellow),
+        4px 4px 0 0 var(--golden-yellow),
+        2px 6px 0 0 var(--golden-yellow),
+        3px 6px 0 0 #0a1628,
+        4px 6px 0 0 var(--golden-yellow),
+        2px 8px 0 0 var(--golden-yellow),
+        4px 8px 0 0 var(--golden-yellow),
+        /* Right eye */
+        8px 4px 0 0 var(--golden-yellow),
+        10px 4px 0 0 var(--golden-yellow),
+        8px 6px 0 0 var(--golden-yellow),
+        9px 6px 0 0 #0a1628,
+        10px 6px 0 0 var(--golden-yellow),
+        8px 8px 0 0 var(--golden-yellow),
+        10px 8px 0 0 var(--golden-yellow);
+}
+
+/* Food Icons */
+
+/* Pizza Icon */
+.icon-pizza::before {
+    box-shadow:
+        6px 0px 0 0 #f8961e,
+        4px 2px 0 0 #f8961e,
+        6px 2px 0 0 #f8961e,
+        8px 2px 0 0 #f8961e,
+        2px 4px 0 0 #f8961e,
+        4px 4px 0 0 #f8961e,
+        6px 4px 0 0 #f8961e,
+        8px 4px 0 0 #f8961e,
+        10px 4px 0 0 #f8961e,
+        2px 6px 0 0 #f8961e,
+        4px 6px 0 0 #f8961e,
+        6px 6px 0 0 #ff6b9d,
+        8px 6px 0 0 #f8961e,
+        10px 6px 0 0 #f8961e,
+        2px 8px 0 0 #f8961e,
+        4px 8px 0 0 #f8961e,
+        6px 8px 0 0 #f8961e,
+        8px 8px 0 0 #ff6b9d,
+        10px 8px 0 0 #f8961e,
+        4px 10px 0 0 #f8961e,
+        6px 10px 0 0 #f8961e,
+        8px 10px 0 0 #f8961e;
+}
+
+/* Pasta Icon */
+.icon-pasta::before {
+    box-shadow:
+        4px 2px 0 0 #f4d03f,
+        6px 2px 0 0 #f4d03f,
+        8px 2px 0 0 #f4d03f,
+        2px 4px 0 0 #f4d03f,
+        4px 4px 0 0 #f4d03f,
+        6px 4px 0 0 #f4d03f,
+        8px 4px 0 0 #f4d03f,
+        10px 4px 0 0 #f4d03f,
+        2px 6px 0 0 #f4d03f,
+        4px 6px 0 0 #f4d03f,
+        6px 6px 0 0 #f4d03f,
+        8px 6px 0 0 #f4d03f,
+        10px 6px 0 0 #f4d03f,
+        4px 8px 0 0 #f4d03f,
+        6px 8px 0 0 #f4d03f,
+        8px 8px 0 0 #f4d03f,
+        6px 10px 0 0 #f4d03f;
+}
+
+/* Cake Icon */
+.icon-cake::before {
+    box-shadow:
+        6px 0px 0 0 #ff6b9d,
+        6px 2px 0 0 #ff6b9d,
+        4px 4px 0 0 #f4d03f,
+        6px 4px 0 0 #f4d03f,
+        8px 4px 0 0 #f4d03f,
+        2px 6px 0 0 #f4d03f,
+        4px 6px 0 0 #f4d03f,
+        6px 6px 0 0 #f4d03f,
+        8px 6px 0 0 #f4d03f,
+        10px 6px 0 0 #f4d03f,
+        2px 8px 0 0 #8b5cf6,
+        4px 8px 0 0 #8b5cf6,
+        6px 8px 0 0 #8b5cf6,
+        8px 8px 0 0 #8b5cf6,
+        10px 8px 0 0 #8b5cf6,
+        2px 10px 0 0 #8b5cf6,
+        4px 10px 0 0 #8b5cf6,
+        6px 10px 0 0 #8b5cf6,
+        8px 10px 0 0 #8b5cf6,
+        10px 10px 0 0 #8b5cf6;
+}
+
+/* Bread Icon */
+.icon-bread::before {
+    box-shadow:
+        4px 2px 0 0 #f8961e,
+        6px 2px 0 0 #f8961e,
+        8px 2px 0 0 #f8961e,
+        2px 4px 0 0 #f8961e,
+        4px 4px 0 0 #f8961e,
+        6px 4px 0 0 #f8961e,
+        8px 4px 0 0 #f8961e,
+        10px 4px 0 0 #f8961e,
+        2px 6px 0 0 #f8961e,
+        4px 6px 0 0 #f4d03f,
+        6px 6px 0 0 #f4d03f,
+        8px 6px 0 0 #f4d03f,
+        10px 6px 0 0 #f8961e,
+        2px 8px 0 0 #f8961e,
+        4px 8px 0 0 #f8961e,
+        6px 8px 0 0 #f8961e,
+        8px 8px 0 0 #f8961e,
+        10px 8px 0 0 #f8961e,
+        4px 10px 0 0 #f8961e,
+        6px 10px 0 0 #f8961e,
+        8px 10px 0 0 #f8961e;
+}
+
+/* Cookie Icon */
+.icon-cookie::before {
+    box-shadow:
+        4px 2px 0 0 #f8961e,
+        6px 2px 0 0 #f8961e,
+        8px 2px 0 0 #f8961e,
+        2px 4px 0 0 #f8961e,
+        4px 4px 0 0 #f8961e,
+        6px 4px 0 0 #8b5cf6,
+        8px 4px 0 0 #f8961e,
+        10px 4px 0 0 #f8961e,
+        2px 6px 0 0 #f8961e,
+        4px 6px 0 0 #f8961e,
+        6px 6px 0 0 #f8961e,
+        8px 6px 0 0 #8b5cf6,
+        10px 6px 0 0 #f8961e,
+        2px 8px 0 0 #f8961e,
+        4px 8px 0 0 #8b5cf6,
+        6px 8px 0 0 #f8961e,
+        8px 8px 0 0 #f8961e,
+        10px 8px 0 0 #f8961e,
+        4px 10px 0 0 #f8961e,
+        6px 10px 0 0 #f8961e,
+        8px 10px 0 0 #f8961e;
+}
+
+/* Taco Icon */
+.icon-taco::before {
+    box-shadow:
+        6px 2px 0 0 #f8961e,
+        4px 4px 0 0 #f8961e,
+        6px 4px 0 0 #f8961e,
+        8px 4px 0 0 #f8961e,
+        2px 6px 0 0 #f8961e,
+        4px 6px 0 0 #22c55e,
+        6px 6px 0 0 #ff6b9d,
+        8px 6px 0 0 #22c55e,
+        10px 6px 0 0 #f8961e,
+        2px 8px 0 0 #f8961e,
+        4px 8px 0 0 #f8961e,
+        6px 8px 0 0 #f8961e,
+        8px 8px 0 0 #f8961e,
+        10px 8px 0 0 #f8961e,
+        4px 10px 0 0 #f8961e,
+        6px 10px 0 0 #f8961e,
+        8px 10px 0 0 #f8961e;
+}
+
+/* Dessert Icon */
+.icon-dessert::before {
+    box-shadow:
+        6px 0px 0 0 #ff6b9d,
+        4px 2px 0 0 #ff6b9d,
+        6px 2px 0 0 #ff6b9d,
+        8px 2px 0 0 #ff6b9d,
+        2px 4px 0 0 #f4d03f,
+        4px 4px 0 0 #f4d03f,
+        6px 4px 0 0 #f4d03f,
+        8px 4px 0 0 #f4d03f,
+        10px 4px 0 0 #f4d03f,
+        2px 6px 0 0 #8b5cf6,
+        4px 6px 0 0 #8b5cf6,
+        6px 6px 0 0 #8b5cf6,
+        8px 6px 0 0 #8b5cf6,
+        10px 6px 0 0 #8b5cf6,
+        2px 8px 0 0 #f4d03f,
+        4px 8px 0 0 #f4d03f,
+        6px 8px 0 0 #f4d03f,
+        8px 8px 0 0 #f4d03f,
+        10px 8px 0 0 #f4d03f,
+        4px 10px 0 0 #f4d03f,
+        6px 10px 0 0 #f4d03f,
+        8px 10px 0 0 #f4d03f;
+}
+
+/* Shawarma Icon */
+.icon-shawarma::before {
+    box-shadow:
+        4px 0px 0 0 #f8961e,
+        6px 0px 0 0 #f8961e,
+        8px 0px 0 0 #f8961e,
+        2px 2px 0 0 #f8961e,
+        4px 2px 0 0 #f8961e,
+        6px 2px 0 0 #f8961e,
+        8px 2px 0 0 #f8961e,
+        10px 2px 0 0 #f8961e,
+        2px 4px 0 0 #f8961e,
+        4px 4px 0 0 #ff6b9d,
+        6px 4px 0 0 #22c55e,
+        8px 4px 0 0 #f4d03f,
+        10px 4px 0 0 #f8961e,
+        2px 6px 0 0 #f8961e,
+        4px 6px 0 0 #22c55e,
+        6px 6px 0 0 #ff6b9d,
+        8px 6px 0 0 #22c55e,
+        10px 6px 0 0 #f8961e,
+        2px 8px 0 0 #f8961e,
+        4px 8px 0 0 #f8961e,
+        6px 8px 0 0 #f8961e,
+        8px 8px 0 0 #f8961e,
+        10px 8px 0 0 #f8961e,
+        4px 10px 0 0 #f8961e,
+        6px 10px 0 0 #f8961e,
+        8px 10px 0 0 #f8961e;
+}
+
+
+/* Moment Icons */
+
+/* Smile Icon */
+.icon-smile::before {
+    box-shadow:
+        /* Face outline */
+        4px 2px 0 0 var(--golden-yellow),
+        6px 2px 0 0 var(--golden-yellow),
+        8px 2px 0 0 var(--golden-yellow),
+        2px 4px 0 0 var(--golden-yellow),
+        10px 4px 0 0 var(--golden-yellow),
+        2px 6px 0 0 var(--golden-yellow),
+        10px 6px 0 0 var(--golden-yellow),
+        2px 8px 0 0 var(--golden-yellow),
+        10px 8px 0 0 var(--golden-yellow),
+        4px 10px 0 0 var(--golden-yellow),
+        6px 10px 0 0 var(--golden-yellow),
+        8px 10px 0 0 var(--golden-yellow),
+        /* Eyes */
+        4px 4px 0 0 #0a1628,
+        8px 4px 0 0 #0a1628,
+        /* Smile */
+        4px 7px 0 0 #0a1628,
+        5px 8px 0 0 #0a1628,
+        6px 8px 0 0 #0a1628,
+        7px 8px 0 0 #0a1628,
+        8px 7px 0 0 #0a1628;
+}
+
+/* Hug Icon */
+.icon-hug::before {
+    box-shadow:
+        /* Left arm */
+        2px 4px 0 0 #ff6b9d,
+        2px 6px 0 0 #ff6b9d,
+        3px 7px 0 0 #ff6b9d,
+        4px 8px 0 0 #ff6b9d,
+        /* Body */
+        6px 4px 0 0 #ff6b9d,
+        6px 6px 0 0 #ff6b9d,
+        6px 8px 0 0 #ff6b9d,
+        /* Right arm */
+        10px 4px 0 0 #ff6b9d,
+        10px 6px 0 0 #ff6b9d,
+        9px 7px 0 0 #ff6b9d,
+        8px 8px 0 0 #ff6b9d,
+        /* Heart in center */
+        5px 5px 0 0 #f4d03f,
+        7px 5px 0 0 #f4d03f,
+        5px 6px 0 0 #f4d03f,
+        6px 7px 0 0 #f4d03f,
+        7px 6px 0 0 #f4d03f;
+}
+
+/* Kiss Icon */
+.icon-kiss::before {
+    box-shadow:
+        /* Heart shape */
+        4px 2px 0 0 #ff6b9d,
+        6px 2px 0 0 #ff6b9d,
+        8px 2px 0 0 #ff6b9d,
+        2px 4px 0 0 #ff6b9d,
+        4px 4px 0 0 #ff6b9d,
+        6px 4px 0 0 #ff6b9d,
+        8px 4px 0 0 #ff6b9d,
+        10px 4px 0 0 #ff6b9d,
+        2px 6px 0 0 #ff6b9d,
+        4px 6px 0 0 #ff6b9d,
+        6px 6px 0 0 #ff6b9d,
+        8px 6px 0 0 #ff6b9d,
+        10px 6px 0 0 #ff6b9d,
+        4px 8px 0 0 #ff6b9d,
+        6px 8px 0 0 #ff6b9d,
+        8px 8px 0 0 #ff6b9d,
+        6px 10px 0 0 #ff6b9d,
+        /* Sparkle */
+        11px 2px 0 0 var(--golden-yellow),
+        12px 3px 0 0 var(--golden-yellow);
+}
+
+/* Popcorn Icon */
+.icon-popcorn::before {
+    box-shadow:
+        /* Popcorn kernels */
+        4px 0px 0 0 #f4d03f,
+        6px 0px 0 0 #f4d03f,
+        8px 0px 0 0 #f4d03f,
+        3px 2px 0 0 #f4d03f,
+        5px 2px 0 0 #f4d03f,
+        7px 2px 0 0 #f4d03f,
+        9px 2px 0 0 #f4d03f,
+        4px 3px 0 0 #f4d03f,
+        6px 3px 0 0 #f4d03f,
+        8px 3px 0 0 #f4d03f,
+        /* Container */
+        3px 5px 0 0 #ff6b9d,
+        4px 5px 0 0 #ff6b9d,
+        5px 5px 0 0 #ff6b9d,
+        6px 5px 0 0 #ff6b9d,
+        7px 5px 0 0 #ff6b9d,
+        8px 5px 0 0 #ff6b9d,
+        9px 5px 0 0 #ff6b9d,
+        3px 7px 0 0 #ff6b9d,
+        9px 7px 0 0 #ff6b9d,
+        3px 9px 0 0 #ff6b9d,
+        9px 9px 0 0 #ff6b9d,
+        4px 10px 0 0 #ff6b9d,
+        5px 10px 0 0 #ff6b9d,
+        6px 10px 0 0 #ff6b9d,
+        7px 10px 0 0 #ff6b9d,
+        8px 10px 0 0 #ff6b9d;
+}
+
+/* Sunset Icon */
+.icon-sunset::before {
+    box-shadow:
+        /* Sun */
+        6px 2px 0 0 #f8961e,
+        4px 4px 0 0 #f8961e,
+        6px 4px 0 0 #f8961e,
+        8px 4px 0 0 #f8961e,
+        /* Horizon line */
+        0px 6px 0 0 var(--golden-yellow),
+        2px 6px 0 0 var(--golden-yellow),
+        4px 6px 0 0 var(--golden-yellow),
+        6px 6px 0 0 var(--golden-yellow),
+        8px 6px 0 0 var(--golden-yellow),
+        10px 6px 0 0 var(--golden-yellow),
+        12px 6px 0 0 var(--golden-yellow),
+        /* Water reflection */
+        6px 8px 0 0 #f8961e,
+        4px 9px 0 0 #5dade2,
+        6px 9px 0 0 #5dade2,
+        8px 9px 0 0 #5dade2,
+        2px 10px 0 0 #5dade2,
+        4px 10px 0 0 #5dade2,
+        6px 10px 0 0 #5dade2,
+        8px 10px 0 0 #5dade2,
+        10px 10px 0 0 #5dade2;
+}
+
+/* Hover animation for content icons */
+.song-card:hover .pixel-icon::before,
+.food-card:hover .pixel-icon::before,
+.timeline-content:hover .pixel-icon::before {
+    animation: pixelPulse 0.6s ease infinite;
+}
+
+/* Song card as clickable link */
+a.song-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+a.song-card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+a.song-card:active {
+    transform: translateY(-4px) scale(0.98);
+}
+
+/* ===================================
+   Pixel Art Padlock
+   =================================== */
+
+.pixel-padlock {
+    position: relative;
+    width: 120px;
+    height: 150px;
+    margin: 2rem auto;
+    animation: lockFloat 3s ease-in-out infinite;
+    transform: scale(1.5);
+}
+
+/* Lock Shackle (arco superior) */
+.pixel-lock-shackle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pixel-lock-shackle::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--golden-yellow);
+    box-shadow:
+        /* Left side of shackle */
+        -12px 0px 0 0 var(--golden-yellow),
+        -12px 2px 0 0 var(--golden-yellow),
+        -12px 4px 0 0 var(--golden-yellow),
+        -12px 6px 0 0 var(--golden-yellow),
+        -12px 8px 0 0 var(--golden-yellow),
+        -12px 10px 0 0 var(--golden-yellow),
+        -12px 12px 0 0 var(--golden-yellow),
+        /* Top of shackle */
+        -10px 0px 0 0 var(--golden-yellow),
+        -8px 0px 0 0 var(--golden-yellow),
+        -6px 0px 0 0 var(--golden-yellow),
+        -4px 0px 0 0 var(--golden-yellow),
+        -2px 0px 0 0 var(--golden-yellow),
+        0px 0px 0 0 var(--golden-yellow),
+        2px 0px 0 0 var(--golden-yellow),
+        4px 0px 0 0 var(--golden-yellow),
+        6px 0px 0 0 var(--golden-yellow),
+        8px 0px 0 0 var(--golden-yellow),
+        10px 0px 0 0 var(--golden-yellow),
+        /* Right side of shackle */
+        12px 0px 0 0 var(--golden-yellow),
+        12px 2px 0 0 var(--golden-yellow),
+        12px 4px 0 0 var(--golden-yellow),
+        12px 6px 0 0 var(--golden-yellow),
+        12px 8px 0 0 var(--golden-yellow),
+        12px 10px 0 0 var(--golden-yellow),
+        12px 12px 0 0 var(--golden-yellow),
+        /* Inner shadow for depth */
+        -10px 2px 0 0 #f8961e,
+        10px 2px 0 0 #f8961e;
+}
+
+/* Lock Body */
+.pixel-lock-body {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pixel-lock-body::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--golden-yellow);
+    box-shadow:
+        /* Top row */
+        -14px 0px 0 0 var(--golden-yellow),
+        -12px 0px 0 0 var(--golden-yellow),
+        -10px 0px 0 0 var(--golden-yellow),
+        -8px 0px 0 0 var(--golden-yellow),
+        -6px 0px 0 0 var(--golden-yellow),
+        -4px 0px 0 0 var(--golden-yellow),
+        -2px 0px 0 0 var(--golden-yellow),
+        0px 0px 0 0 var(--golden-yellow),
+        2px 0px 0 0 var(--golden-yellow),
+        4px 0px 0 0 var(--golden-yellow),
+        6px 0px 0 0 var(--golden-yellow),
+        8px 0px 0 0 var(--golden-yellow),
+        10px 0px 0 0 var(--golden-yellow),
+        12px 0px 0 0 var(--golden-yellow),
+        14px 0px 0 0 var(--golden-yellow),
+        /* Body rows */
+        -14px 2px 0 0 var(--golden-yellow),
+        14px 2px 0 0 var(--golden-yellow),
+        -14px 4px 0 0 var(--golden-yellow),
+        14px 4px 0 0 var(--golden-yellow),
+        -14px 6px 0 0 var(--golden-yellow),
+        14px 6px 0 0 var(--golden-yellow),
+        -14px 8px 0 0 var(--golden-yellow),
+        14px 8px 0 0 var(--golden-yellow),
+        -14px 10px 0 0 var(--golden-yellow),
+        14px 10px 0 0 var(--golden-yellow),
+        -14px 12px 0 0 var(--golden-yellow),
+        14px 12px 0 0 var(--golden-yellow),
+        -14px 14px 0 0 var(--golden-yellow),
+        14px 14px 0 0 var(--golden-yellow),
+        -14px 16px 0 0 var(--golden-yellow),
+        14px 16px 0 0 var(--golden-yellow),
+        -14px 18px 0 0 var(--golden-yellow),
+        14px 18px 0 0 var(--golden-yellow),
+        -14px 20px 0 0 var(--golden-yellow),
+        14px 20px 0 0 var(--golden-yellow),
+        -14px 22px 0 0 var(--golden-yellow),
+        14px 22px 0 0 var(--golden-yellow),
+        -14px 24px 0 0 var(--golden-yellow),
+        14px 24px 0 0 var(--golden-yellow),
+        /* Bottom row */
+        -14px 26px 0 0 var(--golden-yellow),
+        -12px 26px 0 0 var(--golden-yellow),
+        -10px 26px 0 0 var(--golden-yellow),
+        -8px 26px 0 0 var(--golden-yellow),
+        -6px 26px 0 0 var(--golden-yellow),
+        -4px 26px 0 0 var(--golden-yellow),
+        -2px 26px 0 0 var(--golden-yellow),
+        0px 26px 0 0 var(--golden-yellow),
+        2px 26px 0 0 var(--golden-yellow),
+        4px 26px 0 0 var(--golden-yellow),
+        6px 26px 0 0 var(--golden-yellow),
+        8px 26px 0 0 var(--golden-yellow),
+        10px 26px 0 0 var(--golden-yellow),
+        12px 26px 0 0 var(--golden-yellow),
+        14px 26px 0 0 var(--golden-yellow),
+        /* Highlights */
+        -12px 2px 0 0 #f8961e,
+        -10px 4px 0 0 #f8961e,
+        /* Shadows */
+        12px 24px 0 0 #f8961e,
+        10px 24px 0 0 #f8961e;
+}
+
+/* Keyhole */
+.pixel-lock-keyhole {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: keyholePulse 2s ease-in-out infinite;
+}
+
+.pixel-lock-keyhole::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #0a1628;
+    box-shadow:
+        /* Top circle */
+        -2px 0px 0 0 #0a1628,
+        0px 0px 0 0 #0a1628,
+        2px 0px 0 0 #0a1628,
+        -2px 2px 0 0 #0a1628,
+        0px 2px 0 0 #0a1628,
+        2px 2px 0 0 #0a1628,
+        -2px 4px 0 0 #0a1628,
+        0px 4px 0 0 #0a1628,
+        2px 4px 0 0 #0a1628,
+        /* Keyhole shaft */
+        0px 6px 0 0 #0a1628,
+        -2px 8px 0 0 #0a1628,
+        0px 8px 0 0 #0a1628,
+        2px 8px 0 0 #0a1628,
+        -2px 10px 0 0 #0a1628,
+        0px 10px 0 0 #0a1628,
+        2px 10px 0 0 #0a1628,
+        0px 12px 0 0 #0a1628;
+}
+
+/* Animations */
+@keyframes lockFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes keyholePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Shake animation when password is wrong */
+@keyframes lockShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+.pixel-padlock.shake {
+    animation: lockShake 0.5s ease-in-out;
+}
+
+/* Unlock animation */
+.pixel-padlock.unlocking .pixel-lock-shackle {
+    animation: shackleOpen 1s ease-out forwards;
+}
+
+@keyframes shackleOpen {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(-15deg) translateY(-5px);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(-30deg) translateY(-10px);
+        opacity: 0;
+    }
+}
+
+.pixel-padlock.unlocking {
+    animation: lockBounce 0.5s ease-out;
+}
+
+@keyframes lockBounce {
+
+    0%,
+    100% {
+        transform: scale(1.5) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.6) translateY(-15px);
+    }
+}

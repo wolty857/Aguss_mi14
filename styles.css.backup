@@ -1,0 +1,986 @@
+/* ===================================
+   Van Gogh Starry Night - Valentine's Theme
+   Color Palette inspired by "The Starry Night"
+   =================================== */
+
+:root {
+    /* Starry Night Over Rhone Color Palette */
+    --night-blue: #0a1628;
+    --deep-blue: #1a2942;
+    --water-blue: #2d4a6e;
+    --reflection-blue: #3d5a80;
+    --golden-star: #f9c74f;
+    --golden-glow: #f8961e;
+    --moon-white: #f8f9fa;
+    --teal-accent: #43aa8b;
+    --dark-teal: #277da1;
+    --soft-white: #ffffff;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+}
+
+/* ===================================
+   Reset & Base Styles
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, var(--night-blue) 0%, var(--deep-blue) 60%, var(--water-blue) 100%);
+    color: var(--moon-white);
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ===================================
+   Password Lock Screen
+   =================================== */
+
+.lock-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, var(--night-blue) 0%, var(--deep-blue) 50%, #1a2942 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.lock-screen.unlocked {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.lock-container {
+    text-align: center;
+    max-width: 500px;
+    padding: var(--spacing-md);
+}
+
+.lock-title {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--golden-star);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 0 20px rgba(249, 199, 79, 0.5);
+}
+
+.lock-hint {
+    font-size: 1.1rem;
+    color: var(--moon-white);
+    opacity: 0.8;
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+}
+
+/* Animated Padlock */
+.padlock {
+    position: relative;
+    width: 120px;
+    height: 140px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.padlock-shackle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 50px;
+    border: 8px solid var(--golden-star);
+    border-bottom: none;
+    border-radius: 30px 30px 0 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 0 15px rgba(249, 199, 79, 0.3);
+}
+
+.padlock.unlocking .padlock-shackle {
+    transform: translateX(-50%) translateX(-35px) rotate(-45deg);
+    border-color: #4ade80;
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.5);
+}
+
+.padlock-body {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--golden-star) 0%, var(--golden-glow) 100%);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4),
+        inset 0 -3px 10px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(249, 199, 79, 0.4);
+    transition: all 0.6s ease;
+}
+
+.padlock.unlocking .padlock-body {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4),
+        inset 0 -3px 10px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(74, 222, 128, 0.6);
+}
+
+.keyhole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: var(--night-blue);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.keyhole::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 15px solid var(--night-blue);
+}
+
+/* Password Input Container */
+.password-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.password-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1.1rem;
+    text-align: center;
+    background: rgba(61, 90, 128, 0.3);
+    border: 2px solid rgba(249, 199, 79, 0.4);
+    border-radius: 12px;
+    color: var(--moon-white);
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3em;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.password-input::placeholder {
+    color: rgba(248, 249, 250, 0.5);
+    letter-spacing: normal;
+}
+
+.password-input:focus {
+    outline: none;
+    border-color: var(--golden-star);
+    box-shadow: 0 0 20px rgba(249, 199, 79, 0.3);
+    background: rgba(61, 90, 128, 0.4);
+}
+
+.unlock-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--golden-star) 0%, var(--golden-glow) 100%);
+    color: var(--night-blue);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 4px 15px rgba(249, 199, 79, 0.3);
+}
+
+.unlock-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(249, 199, 79, 0.5);
+    background: linear-gradient(135deg, var(--golden-glow) 0%, var(--golden-star) 100%);
+}
+
+.unlock-btn:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    color: #ff6b9d;
+    font-size: 0.95rem;
+    min-height: 20px;
+    margin-top: var(--spacing-xs);
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+/* Success Animation */
+.padlock.unlocking {
+    animation: celebrate 0.8s ease;
+}
+
+@keyframes celebrate {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ===================================
+   Starry Background Animation
+   =================================== */
+
+.starry-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background: var(--moon-white);
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+.star.small {
+    width: 2px;
+    height: 2px;
+}
+
+.star.medium {
+    width: 3px;
+    height: 3px;
+}
+
+.star.large {
+    width: 4px;
+    height: 4px;
+    box-shadow: 0 0 10px var(--bright-yellow);
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.swirl {
+    position: absolute;
+    border: 2px solid rgba(244, 208, 63, 0.3);
+    border-radius: 50%;
+    animation: swirl-rotate 20s infinite linear;
+}
+
+@keyframes swirl-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===================================
+   Navigation Bar
+   =================================== */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(30, 58, 95, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(244, 208, 63, 0.3);
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--moon-white);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--golden-yellow);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--golden-yellow);
+    transform: translateY(-2px);
+}
+
+nav ul li a:hover::before {
+    width: 80%;
+}
+
+nav ul li a.active {
+    background: rgba(244, 208, 63, 0.2);
+    color: var(--golden-yellow);
+    box-shadow: 0 0 15px rgba(244, 208, 63, 0.3);
+}
+
+/* ===================================
+   Page Sections
+   =================================== */
+
+.page-section {
+    display: none;
+    min-height: 100vh;
+    padding: calc(80px + var(--spacing-md)) var(--spacing-md) var(--spacing-md);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.page-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   Main Page - Love Quotes
+   =================================== */
+
+.main-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--spacing-lg);
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--golden-yellow);
+    text-shadow: 0 0 20px rgba(244, 208, 63, 0.5);
+    margin-bottom: var(--spacing-md);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(244, 208, 63, 0.5);
+    }
+
+    to {
+        text-shadow: 0 0 30px rgba(244, 208, 63, 0.8), 0 0 40px rgba(244, 208, 63, 0.4);
+    }
+}
+
+.love-quotes-container {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.quote-card {
+    background: rgba(78, 110, 142, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(244, 208, 63, 0.3);
+    border-radius: 20px;
+    padding: var(--spacing-md);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: floatIn 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.quote-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.quote-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.quote-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.quote-card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.quote-card:nth-child(5) {
+    animation-delay: 1s;
+}
+
+@keyframes floatIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quote-card p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-style: italic;
+    color: var(--moon-white);
+    line-height: 1.6;
+}
+
+.quote-card::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--golden-yellow);
+    opacity: 0.3;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* ===================================
+   Content Pages
+   =================================== */
+
+.content-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--golden-yellow);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 0 0 15px rgba(244, 208, 63, 0.4);
+}
+
+/* Songs Section */
+.songs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.song-card {
+    background: rgba(78, 110, 142, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(244, 208, 63, 0.2);
+    border-radius: 15px;
+    padding: var(--spacing-md);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.song-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--golden-yellow);
+    box-shadow: 0 10px 30px rgba(244, 208, 63, 0.3);
+}
+
+.song-card h3 {
+    color: var(--golden-yellow);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.song-card p {
+    color: var(--moon-white);
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* Reasons Section */
+.reasons-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.reason-item {
+    background: rgba(78, 110, 142, 0.2);
+    backdrop-filter: blur(10px);
+    border-left: 4px solid var(--golden-yellow);
+    border-radius: 10px;
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    transition: all 0.3s ease;
+    animation: slideInLeft 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.reason-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.reason-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.reason-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.reason-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.reason-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.reason-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.reason-item:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.reason-item:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+.reason-item:nth-child(9) {
+    animation-delay: 0.9s;
+}
+
+.reason-item:nth-child(10) {
+    animation-delay: 1s;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.reason-item:hover {
+    transform: translateX(10px);
+    border-left-width: 6px;
+}
+
+.reason-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--golden-yellow);
+    font-weight: bold;
+    min-width: 50px;
+}
+
+.reason-text {
+    flex: 1;
+}
+
+.reason-text h3 {
+    color: var(--golden-yellow);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.reason-text p {
+    color: var(--moon-white);
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Moments Section */
+.moments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.moment-card {
+    background: rgba(78, 110, 142, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(244, 208, 63, 0.2);
+    border-radius: 15px;
+    padding: var(--spacing-md);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.moment-card::before {
+    content: '★';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: var(--golden-yellow);
+    opacity: 0.3;
+    transition: all 0.3s ease;
+}
+
+.moment-card:hover {
+    transform: scale(1.05);
+    border-color: var(--golden-yellow);
+    box-shadow: 0 10px 40px rgba(244, 208, 63, 0.3);
+}
+
+.moment-card:hover::before {
+    opacity: 1;
+    transform: rotate(72deg);
+}
+
+.moment-card h3 {
+    color: var(--golden-yellow);
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.moment-card p {
+    color: var(--moon-white);
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.moment-date {
+    display: block;
+    margin-top: var(--spacing-sm);
+    color: var(--starry-blue);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Foods Section */
+.foods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.food-card {
+    background: rgba(78, 110, 142, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(244, 208, 63, 0.2);
+    border-radius: 15px;
+    padding: var(--spacing-md);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.food-card:hover {
+    transform: translateY(-8px) rotate(2deg);
+    border-color: var(--golden-yellow);
+    box-shadow: 0 15px 40px rgba(244, 208, 63, 0.4);
+}
+
+.food-emoji {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.food-card:hover .food-emoji {
+    animation: spin 0.6s ease-in-out;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.food-card h3 {
+    color: var(--golden-yellow);
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.food-card p {
+    color: var(--moon-white);
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+@media (max-width: 768px) {
+    nav ul {
+        gap: var(--spacing-xs);
+    }
+
+    nav ul li a {
+        padding: var(--spacing-xs);
+        font-size: 0.9rem;
+    }
+
+    .page-section {
+        padding: calc(120px + var(--spacing-sm)) var(--spacing-sm) var(--spacing-sm);
+    }
+
+    .quote-card {
+        padding: var(--spacing-sm);
+    }
+
+    .songs-grid,
+    .moments-grid,
+    .foods-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .reason-number {
+        font-size: 1.5rem;
+        min-width: 40px;
+    }
+}
+
+/* ===================================
+   Utility Classes
+   =================================== */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 {
+    margin-top: var(--spacing-sm);
+}
+
+.mt-2 {
+    margin-top: var(--spacing-md);
+}
+
+.mt-3 {
+    margin-top: var(--spacing-lg);
+}
+
+.mb-1 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.mb-2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.mb-3 {
+    margin-bottom: var(--spacing-lg);
+}/ *   P h o t o   G a l l e r y   S e c t i o n   * /  
+ . p h o t o s - g r i d   {  
+         d i s p l a y :   g r i d ;  
+         g r i d - t e m p l a t e - c o l u m n s :   r e p e a t ( a u t o - f i t ,   m i n m a x ( 2 8 0 p x ,   1 f r ) ) ;  
+         g a p :   v a r ( - - s p a c i n g - m d ) ;  
+         m a r g i n - b o t t o m :   v a r ( - - s p a c i n g - l g ) ;  
+ }  
+  
+ . p h o t o - c a r d   {  
+         b a c k g r o u n d :   r g b a ( 6 1 ,   9 0 ,   1 2 8 ,   0 . 2 ) ;  
+         b a c k d r o p - f i l t e r :   b l u r ( 1 0 p x ) ;  
+         b o r d e r :   2 p x   s o l i d   r g b a ( 2 4 9 ,   1 9 9 ,   7 9 ,   0 . 2 ) ;  
+         b o r d e r - r a d i u s :   1 5 p x ;  
+         o v e r f l o w :   h i d d e n ;  
+         t r a n s i t i o n :   a l l   0 . 3 s   e a s e ;  
+         c u r s o r :   p o i n t e r ;  
+ }  
+  
+ . p h o t o - c a r d : h o v e r   {  
+         t r a n s f o r m :   t r a n s l a t e Y ( - 8 p x ) ;  
+         b o r d e r - c o l o r :   v a r ( - - g o l d e n - s t a r ) ;  
+         b o x - s h a d o w :   0   1 2 p x   3 5 p x   r g b a ( 2 4 9 ,   1 9 9 ,   7 9 ,   0 . 3 ) ;  
+ }  
+  
+ . p h o t o - p l a c e h o l d e r   {  
+         a s p e c t - r a t i o :   4   /   3 ;  
+         d i s p l a y :   f l e x ;  
+         f l e x - d i r e c t i o n :   c o l u m n ;  
+         a l i g n - i t e m s :   c e n t e r ;  
+         j u s t i f y - c o n t e n t :   c e n t e r ;  
+         b a c k g r o u n d :   l i n e a r - g r a d i e n t ( 1 3 5 d e g ,   r g b a ( 6 1 ,   9 0 ,   1 2 8 ,   0 . 3 )   0 % ,   r g b a ( 4 5 ,   7 4 ,   1 1 0 ,   0 . 3 )   1 0 0 % ) ;  
+         b o r d e r - b o t t o m :   2 p x   s o l i d   r g b a ( 2 4 9 ,   1 9 9 ,   7 9 ,   0 . 1 ) ;  
+ }  
+  
+ . p h o t o - p l a c e h o l d e r   . p h o t o - i c o n   {  
+         f o n t - s i z e :   4 r e m ;  
+         o p a c i t y :   0 . 5 ;  
+         m a r g i n - b o t t o m :   v a r ( - - s p a c i n g - s m ) ;  
+ }  
+  
+ . p h o t o - p l a c e h o l d e r   p   {  
+         c o l o r :   v a r ( - - m o o n - w h i t e ) ;  
+         o p a c i t y :   0 . 6 ;  
+         f o n t - s i z e :   0 . 9 5 r e m ;  
+ }  
+  
+ . p h o t o - c a r d   i m g   {  
+         w i d t h :   1 0 0 % ;  
+         h e i g h t :   a u t o ;  
+         a s p e c t - r a t i o :   4   /   3 ;  
+         o b j e c t - f i t :   c o v e r ;  
+         d i s p l a y :   b l o c k ;  
+ }  
+  
+ . p h o t o - c a p t i o n   {  
+         p a d d i n g :   v a r ( - - s p a c i n g - s m )   v a r ( - - s p a c i n g - m d ) ;  
+         c o l o r :   v a r ( - - m o o n - w h i t e ) ;  
+         f o n t - s i z e :   1 r e m ;  
+         t e x t - a l i g n :   c e n t e r ;  
+         f o n t - w e i g h t :   5 0 0 ;  
+ }  
+  
+ . u p l o a d - i n s t r u c t i o n s   {  
+         b a c k g r o u n d :   r g b a ( 6 1 ,   9 0 ,   1 2 8 ,   0 . 2 ) ;  
+         b a c k d r o p - f i l t e r :   b l u r ( 1 0 p x ) ;  
+         b o r d e r :   2 p x   s o l i d   r g b a ( 6 7 ,   1 7 0 ,   1 3 9 ,   0 . 3 ) ;  
+         b o r d e r - r a d i u s :   1 5 p x ;  
+         p a d d i n g :   v a r ( - - s p a c i n g - m d ) ;  
+         m a r g i n - t o p :   v a r ( - - s p a c i n g - l g ) ;  
+ }  
+  
+ . u p l o a d - i n s t r u c t i o n s   h 3   {  
+         c o l o r :   v a r ( - - t e a l - a c c e n t ) ;  
+         f o n t - s i z e :   1 . 4 r e m ;  
+         m a r g i n - b o t t o m :   v a r ( - - s p a c i n g - s m ) ;  
+ }  
+  
+ . u p l o a d - i n s t r u c t i o n s   o l   {  
+         m a r g i n - l e f t :   v a r ( - - s p a c i n g - m d ) ;  
+         c o l o r :   v a r ( - - m o o n - w h i t e ) ;  
+         o p a c i t y :   0 . 9 ;  
+         l i n e - h e i g h t :   1 . 8 ;  
+ }  
+  
+ . u p l o a d - i n s t r u c t i o n s   l i   {  
+         m a r g i n - b o t t o m :   v a r ( - - s p a c i n g - x s ) ;  
+ }  
+  
+ . u p l o a d - i n s t r u c t i o n s   c o d e   {  
+         b a c k g r o u n d :   r g b a ( 1 0 ,   2 2 ,   4 0 ,   0 . 5 ) ;  
+         p a d d i n g :   2 p x   8 p x ;  
+         b o r d e r - r a d i u s :   4 p x ;  
+         c o l o r :   v a r ( - - g o l d e n - s t a r ) ;  
+         f o n t - f a m i l y :   ' C o u r i e r   N e w ' ,   m o n o s p a c e ;  
+         f o n t - s i z e :   0 . 9 r e m ;  
+ }  
+ 

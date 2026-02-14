@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Una página de amor inspirada en La Noche Estrellada de Van Gogh">
+    <title>Aquella Noche Estrellada ✨ | 14 de Febrero</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pixel-icons.css">
+</head>
+
+<body>
+
+    <!-- Password Lock Screen -->
+    <div id="lockScreen" class="lock-screen">
+        <div class="lock-container">
+            <h2 class="lock-title">Para ingresar poner la contraseña</h2>
+            <p class="lock-hint">Pista: Fecha dónde comenzamos a ser novios, ddmmyy</p>
+
+            <!-- Animated Pixel Art Padlock -->
+            <div class="pixel-padlock">
+                <div class="pixel-lock-shackle"></div>
+                <div class="pixel-lock-body"></div>
+                <div class="pixel-lock-keyhole"></div>
+            </div>
+
+            <!-- Password Input -->
+            <div class="password-container">
+                <input type="password" id="passwordInput" class="password-input" placeholder="Ingresa la contraseña"
+                    maxlength="6">
+                <button id="unlockBtn" class="unlock-btn">Desbloquear</button>
+            </div>
+
+            <p id="errorMessage" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- Starry Background -->
+    <div class="starry-background"></div>
+
+    <!-- Decorative Tulips -->
+    <div class="tulip-container bottom-left small">
+        <div class="tulip">
+            <div class="tulip-flower">
+                <div class="tulip-petal center"></div>
+                <div class="tulip-petal left"></div>
+                <div class="tulip-petal right"></div>
+            </div>
+            <div class="tulip-stem">
+                <div class="tulip-leaf left"></div>
+                <div class="tulip-leaf right"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tulip-container bottom-right">
+        <div class="tulip">
+            <div class="tulip-flower">
+                <div class="tulip-petal center"></div>
+                <div class="tulip-petal left"></div>
+                <div class="tulip-petal right"></div>
+            </div>
+            <div class="tulip-stem">
+                <div class="tulip-leaf left"></div>
+                <div class="tulip-leaf right"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tulip-container top-left large">
+        <div class="tulip">
+            <div class="tulip-flower">
+                <div class="tulip-petal center"></div>
+                <div class="tulip-petal left"></div>
+                <div class="tulip-petal right"></div>
+            </div>
+            <div class="tulip-stem">
+                <div class="tulip-leaf left"></div>
+                <div class="tulip-leaf right"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tulip-container top-right small">
+        <div class="tulip">
+            <div class="tulip-flower">
+                <div class="tulip-petal center"></div>
+                <div class="tulip-petal left"></div>
+                <div class="tulip-petal right"></div>
+            </div>
+            <div class="tulip-stem">
+                <div class="tulip-leaf left"></div>
+                <div class="tulip-leaf right"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tulip-container mid-left">
+        <div class="tulip">
+            <div class="tulip-flower">
+                <div class="tulip-petal center"></div>
+                <div class="tulip-petal left"></div>
+                <div class="tulip-petal right"></div>
+            </div>
+            <div class="tulip-stem">
+                <div class="tulip-leaf left"></div>
+                <div class="tulip-leaf right"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tulip-container mid-right large">
+        <div class="tulip">
+            <div class="tulip-flower">
+                <div class="tulip-petal center"></div>
+                <div class="tulip-petal left"></div>
+                <div class="tulip-petal right"></div>
+            </div>
+            <div class="tulip-stem">
+                <div class="tulip-leaf left"></div>
+                <div class="tulip-leaf right"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#inicio"><span class="nav-icon icon-home"></span> Inicio</a></li>
+            <li><a href="#canciones"><span class="nav-icon icon-music"></span> Canciones pa ti</a></li>
+            <li><a href="#razones"><span class="nav-icon icon-heart"></span> 10 razones por las que te adoro</a></li>
+            <li><a href="#momentos"><span class="nav-icon icon-star"></span> Momentos favoritos</a></li>
+            <li><a href="#comidas"><span class="nav-icon icon-food"></span> Comidas</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Page - Love Quotes -->
+    <section id="inicio" class="page-section main-page">
+        <h1 class="main-title">Agussss, mi 14 de Febrero</h1>
+
+        <div class="love-quotes-container">
+            <div class="quote-card">
+                <p>He luchado en vano. Ya no puedo más. Debo decirle cuánto la admiro y la amo.</p>
+            </div>
+
+            <div class="quote-card">
+                <p>La amo. A pesar de mi voluntad, de mi razón y hasta de mi carácter.</p>
+            </div>
+
+            <div class="quote-card">
+                <p>Si sus sentimientos son los mismos que en abril pasado, dígamelo ahora. Mis afectos y deseos no han
+                    cambiado.</p>
+            </div>
+
+            <div class="quote-card">
+                <p>Ella me ha enseñado a ser mejor.</p>
+            </div>
+
+            <div class="quote-card">
+                <p>No busques razón para el amor de alguien. Por eso no busco una razón para amarte porque las tengo
+                    todas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Songs Page -->
+    <section id="canciones" class="page-section content-page">
+        <h2 class="page-title">Canciones pa ti 🎵</h2>
+
+        <div class="songs-grid">
+            <a href="https://music.youtube.com/watch?v=Oq79WOe2I_s&si=QX4TDf0f7lDjF3oZ" target="_blank"
+                class="song-card">
+                <h3><span class="pixel-icon icon-moon"></span> te quiero tanto</h3>
+                <p>Kevin Kaarl</p>
+                <p class="mt-1">Llévame siempre al recordar.</p>
+            </a>
+
+            <a href="https://music.youtube.com/watch?v=ZtPiI5LEh9c&si=7aAqoQC67mNWEK8r" target="_blank"
+                class="song-card">
+                <h3><span class="pixel-icon icon-sparkle"></span> Reloj Ingrato</h3>
+                <p>José y el Toro</p>
+                <p class="mt-1">Contigo hasta la eternidad se siente como un instante.</p>
+            </a>
+
+            <a href="https://music.youtube.com/watch?v=80RpPS_6ong&si=Is-xUnf3yw8yao-p" target="_blank"
+                class="song-card">
+                <h3><span class="pixel-icon icon-dizzy"></span> Algo Contigo</h3>
+                <p>Vicentico</p>
+                <p class="mt-1">Y aunque pueda parecerte un desatino, no quisiera yo morirme sin tener algo contigo.</p>
+            </a>
+
+            <a href="https://music.youtube.com/watch?v=9piyWrfULSk&si=aS8acqHbxKStGcm0" target="_blank"
+                class="song-card">
+                <h3><span class="pixel-icon icon-star-big"></span> You're Beautiful</h3>
+                <p>James Blunt</p>
+                <p class="mt-1">Eres hermosa.</p>
+            </a>
+
+            <a href="https://music.youtube.com/watch?v=iB2w5l4Y6bs&si=qm04bNUhGBy1Ushg" target="_blank"
+                class="song-card">
+                <h3><span class="pixel-icon icon-heart-yellow"></span> Juntos a la Par</h3>
+                <p>Pappo</p>
+                <p class="mt-1">Le he pedido tanto a Dios, que al final oyó mi voz.</p>
+            </a>
+
+            <a href="https://music.youtube.com/watch?v=X80LSLZo0Jk&si=DLYP0iCoTuICJN_R" target="_blank"
+                class="song-card">
+                <h3><span class="pixel-icon icon-palette"></span> Mujer de Rizos</h3>
+                <p>Chico Cometa</p>
+                <p class="mt-1">Rizos de amor que me atrapan lentamente.</p>
+            </a>
+
+            <a href="https://music.youtube.com/watch?v=h_hT9KrTH9w&si=kfLxyk93c_c6D-C6" target="_blank"
+                class="song-card">
+                <h3><span class="pixel-icon icon-eyes"></span> Tus Ojos</h3>
+                <p>Los Cafres</p>
+                <p class="mt-1">Será que sos un angel?? Que no podés disimular.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 10 Reasons Page -->
+    <section id="razones" class="page-section content-page">
+        <h2 class="page-title">10 Razones por las que te Adoro 💛</h2>
+
+        <div class="reasons-list">
+            <div class="reason-item">
+                <span class="reason-number">1</span>
+                <div class="reason-text">
+                    <h3>Tu Sonrisa</h3>
+                    <p>Cuando estoy triste recuerdo tu sonrisa, cuando estoy feliz recuerdo tu sonrisa, cuando estoy más
+                        o menos recuerdo tu sonrisa. Siempre
+                        recuerdo tu sonrisa porque es mi curita al alma.</p>
+                </div>
+            </div>
+
+            <div class="reason-item">
+                <span class="reason-number">2</span>
+                <div class="reason-text">
+                    <h3>Tus ojitos brillosos</h3>
+                    <p>Mi mayor debilidad es tu mirada.</p>
+                </div>
+            </div>
+
+            <div class="reason-item">
+                <span class="reason-number">3</span>
+                <div class="reason-text">
+                    <h3>Tu forma de hablar</h3>
+                    <p>Me encanta cuando me contás historias tuyas, chismes, chistes, anécdotas,
+                        y hasta cuando me retás jeje.</p>
+                </div>
+            </div>
+
+            <div class="reason-item">
+                <span class="reason-number">4</span>
+                <div class="reason-text">
+                    <h3>Siempre me apoyás en todo</h3>
+                    <p>La mejor compañía es aquella que está con vos en todas y vos sos la mejor compañía que tengo.</p>
+                </div>
+            </div>
+
+            <div class="reason-item">
+                <span class="reason-number">5</span>
+                <div class="reason-text">
+                    <h3>Cuando me ponés carita de mala</h3>
+                    <p>No hay algo que me dé más ternura que cuando te hacés la mala porque lo último que me da es miedo
+                        JAJAJAJA.</p>
+                </div>
+            </div>
+
+            <div class="reason-item">
+                <span class="reason-number">6</span>
+                <div class="reason-text">
+                    <h3>Tus abrazos</h3>
+                    <p>Ni tengo que explicar tanto, tus abrazos son como dormir acurrucado en la frazada en pleno
+                        invierno,
+                        es tan reconfortante que me da una fiaquita como cuando dormís tapadito en ese frío.</p>
+                </div>
+            </div>
+
+            <div class="reason-item">
+                <span class="reason-number">7</span>
+                <div class="reason-text">
+                    <h3>Tu rebeldía</h3>
+                    <p>Me encanta hasta cuando te digo las cosas para tu bien y te enojás JAJAJAJAJAJA.</p>
+                </div>
+            </div>
+
+            <div class="reason-item">
+                <span class="reason-number">8</span>
+                <div class="reason-text">
+                    <h3>Nuestro humor único</h3>
+                    <p>Cuando comenzamos a reir como taraditos me encanta demasiado AJJAJAJAJAJJAJA.</p>
+                </div>
+            </div>
+
+            <div class="reason-item">
+                <span class="reason-number">9</span>
+                <div class="reason-text">
+                    <h3>Cuando me hacés tus propuestas indecentes (Mirar Tus pelis y series románticas)</h3>
+                    <p>Que me pidas toda tímida si quiero mirar con vos es lo mejor de lo mejor .</p>
+                </div>
+            </div>
+
+            <div class="reason-item">
+                <span class="reason-number">10</span>
+                <div class="reason-text">
+                    <h3>Que no pueda quedarme con una razón</h3>
+                    <p>Hay tantas razones por las que podría decirte que te adoro, que no sé con cuales quedarme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Favorite Moments Page -->
+    <section id="momentos" class="page-section content-page">
+        <h2 class="page-title">Momentos Favoritos ⭐</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>La primera vez que nos vimos <span class="pixel-icon icon-dizzy"></span></h3>
+                    <p>Ese día algo cambio dentro de Lotso jajajajja, Tus ojitos brillosos por haber visto al chico más
+                        lindo que podrías conocer me encantó JAJAJAJAJAJ .</p>
+                    <span class="moment-date">El inicio de todo</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>El primer cumpleaños tuyo al que asistí <span class="pixel-icon icon-smile"></span></h3>
+                    <p>Jamás me voy a olvidar cuando me dijiste que solo estaba tu mamá y Ary -_-.</p>
+                    <span class="moment-date">Chistosita</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Cuando me acompañaste a hacer trámites <span class="pixel-icon icon-sparkle"></span></h3>
+                    <p>Como hablamos ese día jajajaja.</p>
+                    <span class="moment-date">Uno más nervioso que el otro</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Nuestro Primer Abrazo <span class="pixel-icon icon-hug"></span></h3>
+                    <p>Descubrí mi abriguito favorito.</p>
+                    <span class="moment-date">Hogar</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Nuestro primero beso <span class="pixel-icon icon-kiss"></span></h3>
+                    <p>Raviolitos, salsita y finalizamos con broche de oro.</p>
+                    <span class="moment-date">Locura total</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Cuando escuchamos Circles de Post Malone <span class="pixel-icon icon-music"></span></h3>
+                    <p>Una adrenalina encima.</p>
+                    <span class="moment-date">Casi te beso ese día ajajajja</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Cuando te dije que tu pañuelo parecía de abuelas de plaza de mayo JAJAJAJAJ</h3>
+                    <p>En realidad quería decirte que te quedaba hermoso, pero tenía verguenza.</p>
+                    <span class="moment-date">Exploradores del amor</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Esa noche cuando te pregunté si querías ser mi novia <span class="pixel-icon icon-moon"></span>
+                    </h3>
+                    <p>Me acuerdo que casi no vuelvo a mi casa JAJAJAJJAJA.</p>
+                    <span class="moment-date">Bonita noche</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Cuando tu mamá nos quiso enseñar a bailar JAJAJAJA </h3>
+                    <p>que cagadero de risa.</p>
+                    <span class="moment-date">Más duros los pibes</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Nuestras Tardes de Películas <span class="pixel-icon icon-popcorn"></span></h3>
+                    <p>Tradición que no se debe perder.</p>
+                    <span class="moment-date">Tarde perfecta</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Ese día en el muelle de la costa que te fuiste de mí jajajajaja <span
+                            class="pixel-icon icon-sunset"></span></h3>
+                    <p>Ofendidisima.</p>
+                    <span class="moment-date">Altos caburés comimos </span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Cada Día con vos <span class="pixel-icon icon-heart-yellow"></span></h3>
+                    <p>Cada instante con vos es top top.</p>
+                    <span class="moment-date">Para mí todos los días son 14 de Febrero</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Foods Page -->
+    <section id="comidas" class="page-section content-page">
+        <h2 class="page-title">Comidas que quiero que me cocines jejeje 🍽️</h2>
+
+        <div class="foods-grid">
+            <div class="food-card">
+                <span class="pixel-icon icon-pizza"></span>
+                <h3>Pizza casera de masa madre</h3>
+                <p>Es que te salen buenisimas.</p>
+            </div>
+
+            <div class="food-card">
+                <span class="pixel-icon icon-pasta"></span>
+                <h3>Pasta Casera</h3>
+                <p>Todavía sigue pendiente.</p>
+            </div>
+
+            <div class="food-card">
+                <span class="pixel-icon icon-cake"></span>
+                <h3>Postres de Chocolate</h3>
+                <p>JAJAJAJAJJAAJA Chocolateeeeeeeeee.</p>
+            </div>
+
+            <div class="food-card">
+                <span class="pixel-icon icon-bread"></span>
+                <h3>Focaccia</h3>
+                <p>Me quedé con las ganas de más jeje.</p>
+            </div>
+
+            <div class="food-card">
+                <span class="pixel-icon icon-cookie"></span>
+                <h3>Alfajores</h3>
+                <p>Quiero que hagamos ese alfajor que dijimos una vez, el de chocolate.</p>
+            </div>
+
+            <div class="food-card">
+                <span class="pixel-icon icon-taco"></span>
+                <h3>Tacos y más tacos</h3>
+                <p>Quiero que hagamos más y más tacos.</p>
+            </div>
+
+            <div class="food-card">
+                <span class="pixel-icon icon-dessert"></span>
+                <h3>Tiramisú</h3>
+                <p>Son adictivos.</p>
+            </div>
+
+            <div class="food-card">
+                <span class="pixel-icon icon-shawarma"></span>
+                <h3>Shawarma</h3>
+                <p>Ese tambien está pendiente jeje.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
