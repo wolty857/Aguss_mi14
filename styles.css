@@ -103,12 +103,14 @@ h6,
     text-shadow: 0 0 20px rgba(249, 199, 79, 0.3);
 }
 
-font-size: clamp(1.8rem, 4vw, 2.5rem);
-font-weight: 600;
-color: var(--golden-star);
-margin-bottom: var(--spacing-sm);
-text-shadow: 0 0 20px rgba(249, 199, 79, 0.5);
+.lock-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: var(--golden-star);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 0 20px rgba(249, 199, 79, 0.5);
 }
+
 
 .lock-hint {
     font-size: 1.1rem;
@@ -430,6 +432,118 @@ nav ul li a.active {
     color: var(--golden-yellow);
     box-shadow: 0 0 15px rgba(244, 208, 63, 0.3);
 }
+
+/* ===================================
+   Hamburger Menu Button - Pixel Art Style
+   =================================== */
+
+.hamburger-btn {
+    display: none;
+    /* Hidden by default on desktop */
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+    background: rgba(30, 58, 95, 0.95);
+    border: none;
+    padding: 0.8rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.hamburger-btn:hover {
+    background: rgba(30, 58, 95, 1);
+    box-shadow: 0 6px 20px rgba(244, 208, 63, 0.4);
+    transform: scale(1.05);
+}
+
+.hamburger-btn:active {
+    transform: scale(0.95);
+}
+
+/* Hamburger Icon - Pixel Art Style */
+.hamburger-icon {
+    width: 28px;
+    height: 24px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 4px;
+    background: var(--golden-yellow);
+    display: block;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px rgba(244, 208, 63, 0.5);
+    image-rendering: pixelated;
+    position: relative;
+}
+
+/* Pixel art effect for hamburger lines */
+.hamburger-line::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--golden-yellow);
+    top: 0;
+    left: 0;
+    box-shadow:
+        0px 0px 0 0 var(--golden-yellow),
+        2px 0px 0 0 var(--golden-yellow),
+        4px 0px 0 0 var(--golden-yellow),
+        6px 0px 0 0 var(--golden-yellow),
+        8px 0px 0 0 var(--golden-yellow),
+        10px 0px 0 0 var(--golden-yellow),
+        12px 0px 0 0 var(--golden-yellow),
+        14px 0px 0 0 var(--golden-yellow),
+        16px 0px 0 0 var(--golden-yellow),
+        18px 0px 0 0 var(--golden-yellow),
+        20px 0px 0 0 var(--golden-yellow),
+        22px 0px 0 0 var(--golden-yellow),
+        24px 0px 0 0 var(--golden-yellow),
+        26px 0px 0 0 var(--golden-yellow);
+}
+
+/* Animated state when menu is open */
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Pulse animation on hover */
+@keyframes hamburgerPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(244, 208, 63, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 15px rgba(244, 208, 63, 0.8);
+    }
+}
+
+.hamburger-btn:hover .hamburger-line {
+    animation: hamburgerPulse 1s ease infinite;
+}
+
 
 /* Navigation Icons - Pixel Art Style */
 .nav-icon {
@@ -1301,43 +1415,519 @@ nav ul li a.active .nav-icon::before {
    Responsive Design
    =================================== */
 
+/* Tablets y pantallas medianas (481px - 768px) */
 @media (max-width: 768px) {
+
+    /* Mostrar botón hamburguesa */
+    .hamburger-btn {
+        display: block;
+    }
+
+    /* Navegación */
+    nav {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
     nav ul {
-        gap: var(--spacing-xs);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(180deg, var(--night-blue) 0%, var(--deep-blue) 100%);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem;
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1000;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Menu abierto */
+    nav ul.active {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    nav ul li {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
     }
 
     nav ul li a {
-        padding: var(--spacing-xs);
-        font-size: 0.9rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        width: 100%;
+        background: rgba(78, 110, 142, 0.3);
+        border: 2px solid rgba(244, 208, 63, 0.2);
+        border-radius: 12px;
+        transition: all 0.3s ease;
     }
 
+    nav ul li a:hover {
+        background: rgba(78, 110, 142, 0.5);
+        border-color: var(--golden-yellow);
+        transform: translateX(10px);
+    }
+
+    .nav-icon {
+        margin-right: 0;
+        margin-bottom: 0;
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Lock Screen */
+    .lock-container {
+        max-width: 90%;
+        padding: var(--spacing-sm);
+    }
+
+    .lock-title {
+        font-size: 1.5rem;
+    }
+
+    .lock-hint {
+        font-size: 0.95rem;
+    }
+
+    .pixel-padlock {
+        transform: scale(1.2);
+    }
+
+    /* Secciones de página */
     .page-section {
-        padding: calc(120px + var(--spacing-sm)) var(--spacing-sm) var(--spacing-sm);
+        padding: calc(100px + var(--spacing-sm)) var(--spacing-sm) var(--spacing-sm);
     }
 
+    /* Título principal */
+    .main-title {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    /* Quote cards */
     .quote-card {
         padding: var(--spacing-sm);
     }
 
-    .songs-grid,
-    .moments-grid,
+    .quote-card p {
+        font-size: 1.1rem;
+    }
+
+    /* Grids */
+    .songs-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-sm);
+    }
+
     .foods-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-sm);
+    }
+
+    /* Razones */
+    .reason-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .reason-number {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .reason-text h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Food cards */
+    .food-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .pixel-icon {
+        width: 24px;
+        height: 24px;
     }
 }
 
-@media (max-width: 480px) {
+/* Móviles grandes (481px - 640px) */
+@media (max-width: 640px) {
+
+    /* Navegación más compacta */
+    nav ul li a {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.65rem;
+    }
+
+    /* Títulos */
     .main-title {
         font-size: 2rem;
     }
 
     .page-title {
+        font-size: 1.7rem;
+    }
+
+    /* Quote cards */
+    .love-quotes-container {
+        gap: var(--spacing-sm);
+    }
+
+    .quote-card p {
+        font-size: 1rem;
+    }
+
+    /* Songs grid - una columna */
+    .songs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .song-card h3 {
+        font-size: 1.1rem;
+    }
+
+    /* Foods grid */
+    .foods-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Razones */
+    .reason-number {
+        font-size: 2rem;
+    }
+
+    .reason-text h3 {
+        font-size: 1.1rem;
+    }
+
+    .reason-text p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Móviles pequeños (320px - 480px) */
+@media (max-width: 480px) {
+
+    /* Variables de espaciado reducidas */
+    :root {
+        --spacing-xs: 0.4rem;
+        --spacing-sm: 0.8rem;
+        --spacing-md: 1.5rem;
+        --spacing-lg: 2rem;
+        --spacing-xl: 2.5rem;
+    }
+
+    /* Navegación muy compacta */
+    nav {
+        padding: 0.5rem 0.3rem;
+    }
+
+    nav ul {
+        gap: 0.2rem;
+    }
+
+    nav ul li a {
+        padding: 0.3rem 0.4rem;
+        font-size: 0.6rem;
+    }
+
+    .nav-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Lock Screen */
+    .lock-container {
+        max-width: 95%;
+        padding: 1rem;
+    }
+
+    .lock-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .lock-hint {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .pixel-padlock {
+        transform: scale(1);
+        margin: 1rem auto;
+    }
+
+    .password-input {
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+    }
+
+    .unlock-btn {
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+    }
+
+    /* Secciones */
+    .page-section {
+        padding: calc(90px + 0.8rem) 0.8rem 0.8rem;
+    }
+
+    /* Títulos */
+    .main-title {
         font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Quote cards */
+    .love-quotes-container {
+        gap: 1rem;
+    }
+
+    .quote-card {
+        padding: 1rem;
+    }
+
+    .quote-card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .quote-card::before {
+        font-size: 3rem;
+        top: -5px;
+        left: 10px;
+    }
+
+    /* Songs */
+    .songs-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .song-card {
+        padding: 1rem;
+    }
+
+    .song-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .song-card p {
+        font-size: 0.85rem;
+    }
+
+    /* Razones */
+    .reasons-list {
+        gap: 1rem;
+    }
+
+    .reason-item {
+        padding: 1rem;
+    }
+
+    .reason-number {
+        font-size: 1.8rem;
+        min-width: auto;
+    }
+
+    .reason-text h3 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .reason-text p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    /* Timeline */
+    .timeline {
+        padding: 1rem 0;
+    }
+
+    .timeline-item {
+        margin-bottom: 1.5rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .moment-date {
+        font-size: 0.75rem;
+        margin-top: 0.5rem;
+    }
+
+    /* Foods */
+    .foods-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .food-card {
+        padding: 1rem;
+    }
+
+    .food-card h3 {
+        font-size: 1rem;
+    }
+
+    .food-card p {
+        font-size: 0.85rem;
+    }
+
+    .pixel-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Tulipanes - ocultar más en móviles */
+    .tulip-container {
+        display: none !important;
+    }
+
+    .tulip-container.bottom-left,
+    .tulip-container.bottom-right {
+        display: block !important;
+        opacity: 0.5;
+    }
+
+    .tulip-container.bottom-left {
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .tulip-container.bottom-right {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .tulip-container .tulip {
+        transform: scale(0.6);
+    }
+}
+
+/* Móviles muy pequeños (menos de 360px) */
+@media (max-width: 360px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .page-title {
+        font-size: 1.3rem;
+    }
+
+    nav ul li a {
+        padding: 0.25rem 0.3rem;
+        font-size: 0.55rem;
+    }
+
+    .nav-icon {
+        width: 12px;
+        height: 12px;
+    }
+
+    .lock-title {
+        font-size: 1.1rem;
+    }
+
+    .lock-hint {
+        font-size: 0.75rem;
+    }
+
+    .quote-card p {
+        font-size: 0.85rem;
+    }
+
+    .song-card h3,
+    .food-card h3,
+    .reason-text h3,
+    .timeline-content h3 {
+        font-size: 0.9rem;
     }
 
     .reason-number {
         font-size: 1.5rem;
-        min-width: 40px;
+    }
+}
+
+/* Landscape móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+    .lock-container {
+        max-width: 400px;
+    }
+
+    .pixel-padlock {
+        transform: scale(0.8);
+        margin: 0.5rem auto;
+    }
+
+    .page-section {
+        padding: calc(70px + 0.5rem) 1rem 0.5rem;
+    }
+
+    .main-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .page-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .timeline-item {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Tablets en landscape */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .songs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .foods-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .timeline-content {
+        width: calc(50% - 30px);
     }
 }
 
